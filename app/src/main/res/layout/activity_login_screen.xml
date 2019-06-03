@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/Layout_margin"
+        android:orientation="vertical">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NeoSTORE"
+            android:textColor="@color/whiteColor"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            android:padding="49dp"
+
+    />
+    <EditText
+            style="@style/Style_text"
+            android:id="@+id/email_add"
+            android:hint="  Username"
+            android:drawableLeft="@drawable/username_icon"
+            android:textColorHint="@color/whiteColor"
+            android:textSize="18dp"
+            android:layout_marginBottom="14dp"
+    />
+    <EditText
+
+            style="@style/Style_text"
+            android:id="@+id/password_st"
+            android:drawableLeft="@drawable/password_icon"
+            android:hint="  Password"
+            android:textSize="18dp"
+            android:textColorHint="@color/whiteColor"
+            android:layout_marginBottom="34dp"
+    />
+
+    <Button
+            android:id="@+id/login_btn"
+            android:text="LOGIN"
+            android:textColor="#E91C1A"
+            android:textSize="26dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/buttonrounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textSize="18dp"
+            android:textColor="@color/whiteColor"
+            android:textAlignment="center"
+
+    />
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/plus"
+            android:text="DONT HAVE AN ACCOUNT?"
+            android:textSize="16dp"
+            android:textColor="@color/whiteColor"
+            android:layout_marginTop="46dp"
+            android:layout_marginLeft="46dp"
+
+    />
+
+
+</LinearLayout>
+
+
