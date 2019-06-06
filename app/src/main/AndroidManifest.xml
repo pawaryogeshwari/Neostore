@@ -9,25 +9,32 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".HomeActivity">
+        </activity>
         <activity
-                android:name=".Registration"
+                android:name=".ForgotpwdActivity"
+                android:label="@string/title_activity_forgotpwd"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+                android:name=".RegistrationActivity"
                 android:label="@string/title_activity_registration"
                 android:theme="@style/AppTheme.NoActionBar">
-        </activity> <activity
-            android:name=".LoginScreen"
-            android:label="@string/title_activity_login_screen"
-            android:theme="@style/AppTheme.NoActionBar">
-    </activity>
-
+        </activity>
         <activity
-                android:name=".MainActivity"
-                android:label="@string/app_name"
+                android:name=".LoginActivity"
+                android:label="@string/title_activity_login_screen"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
