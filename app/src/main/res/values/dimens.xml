@@ -9,6 +9,7 @@
     <dimen name="btn_width">293dp</dimen>
     <dimen name="btn_height">47dp</dimen>
     <dimen name="bottom_margin">14dp</dimen>
+    <dimen name="start_padding">10dp</dimen>
 
 </resources>
 

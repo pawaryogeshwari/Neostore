@@ -14,4 +14,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="i_agree_the_terms_and_condition">I agree the Terms and Condition</string>
+    <string name="username">Username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="neostore">NeoSTORE</string>
+    <string name="login">login</string>
 </resources>

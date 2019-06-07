@@ -3,70 +3,89 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/Layout_margin"
-        android:gravity="center"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+            style="@style/app_toolbarStyle"
+            app:logo="@drawable/logout_icon"
+
+    />
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  style="@style/Layout_margin"
+                  android:gravity="center">
+
+
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NeoSTORE"
+            android:text="@string/neostore"
             android:textColor="@color/whiteColor"
             android:textSize="@dimen/text_size"
             android:textStyle="bold"
             android:padding="@dimen/text_padding"/>
     <EditText
-            android:background="@drawable/edittxt_style"
-            style="@style/Style_text"
+            android:background="@drawable/edit_text_style"
+            style="@style/app_TextStyle"
+            android:paddingStart="@dimen/start_padding"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:hint="@string/first_name"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
     <EditText
 
-            android:background="@drawable/edittxt_style"
+            android:background="@drawable/edit_text_style"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
+            android:paddingStart="@dimen/start_padding"
             android:hint="@string/last_name"
-            style="@style/Style_text"
+            style="@style/app_TextStyle"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
     <EditText
 
-            android:background="@drawable/edittxt_style"
-            style="@style/Style_text"
+            android:paddingStart="@dimen/start_padding"
+            android:background="@drawable/edit_text_style"
+            style="@style/app_TextStyle"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/email_icon"
             android:hint="@string/email"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
 
     <EditText
-
-            android:background="@drawable/edittxt_style"
-            style="@style/Style_text"
+            android:paddingStart="@dimen/start_padding"
+            android:background="@drawable/edit_text_style"
+            style="@style/app_TextStyle"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
 
     <EditText
-
-            android:background="@drawable/edittxt_style"
-            style="@style/Style_text"
+            android:paddingStart="@dimen/start_padding"
+            android:background="@drawable/edit_text_style"
+            style="@style/app_TextStyle"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/cpassword_icon"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:layout_marginBottom="23dp"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
 
 
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="#E91C1A"
-            style="@style/Style_text"
+            android:background="@color/RedColor"
+            style="@style/app_TextStyle"
             android:orientation="horizontal">
 
 
@@ -88,7 +107,7 @@
 
 
             <RadioButton
-                    android:id="@+id/male_btn"
+                    android:id="@+id/btn_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/male"
@@ -97,7 +116,7 @@
             />
 
             <RadioButton
-                    android:id="@+id/female_btn"
+                    android:id="@+id/btn_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/female"
@@ -110,21 +129,24 @@
 
     <EditText
 
-            android:background="@drawable/edittxt_style"
-            style="@style/Style_text"
+            android:background="@drawable/edit_text_style"
+            android:paddingStart="@dimen/start_padding"
+            style="@style/app_TextStyle"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/cellphone"
-            android:hint="  Phone Number"
+            android:hint="@string/phone_number"
             android:inputType="textPassword"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/checked_icon"
-            android:text="  I agree the Terms and Condition"
-            android:textSize="13dp"
+            android:text="@string/i_agree_the_terms_and_condition"
+            android:textSize="13sp"
             android:textColor="@color/whiteColor"
             android:layout_marginBottom="@dimen/bottom_margin"
     />
@@ -139,6 +161,7 @@
             android:background="@drawable/rounded_btn"
             android:textColor="@color/RedColor"
     />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -15,7 +15,7 @@ class LoginActivity :BaseActivity() {
             startActivity(intent)
         }
 
-        forgot_pwd.setOnClickListener {
+        txt_forgotpwd.setOnClickListener {
             val intent1 = Intent(this@LoginActivity, ForgotpwdActivity::class.java)
             startActivity(intent1)
         }

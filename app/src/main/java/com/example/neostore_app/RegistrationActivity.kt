@@ -1,20 +1,25 @@
 package com.example.neostore_app
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity;
-
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class RegistrationActivity : BaseActivity() {
 
-override var getLayout=R.layout.activity_registration
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override var getLayout = R.layout.activity_registration
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayout)
 
 
-    }
+        btn_register.setOnClickListener{
+
+            val reg=Intent(this@RegistrationActivity,HomeActivity::class.java)
+            startActivity(reg)
+        }
+        }
+
 
 }
+
+

@@ -10,7 +10,7 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NeoSTORE"
+            android:text="@string/neostore"
             android:textColor="@color/whiteColor"
             android:textSize="@dimen/text_size"
             android:textStyle="bold"
@@ -18,41 +18,45 @@
 
     />
     <EditText
-            style="@style/Style_text"
+            style="@style/app_TextStyle"
             android:id="@+id/email_add"
-            android:background="@drawable/edittxt_style"
-            android:hint="  Username"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/username"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:textColorHint="@color/whiteColor"
             android:textSize="@dimen/editText_size"
+            android:paddingStart="@dimen/start_padding"
             android:layout_marginBottom="@dimen/bottom_margin"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
     <EditText
 
-            style="@style/Style_text"
-            android:background="@drawable/edittxt_style"
+            style="@style/app_TextStyle"
+            android:background="@drawable/edit_text_style"
             android:id="@+id/password"
+            android:paddingStart="@dimen/start_padding"
+            android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
-            android:hint="  Password"
+            android:hint="@string/password"
             android:textSize="@dimen/editText_size"
             android:textColorHint="@color/whiteColor"
             android:layout_marginBottom="34dp"
-    />
+            android:paddingLeft="@dimen/start_padding"/>
 
     <Button
             android:id="@+id/btn_login"
-            android:text="LOGIN"
-            android:textColor="#E91C1A"
+            android:text="@string/login"
+            android:textColor="@color/RedColor"
             android:textSize="@dimen/btn_size"
             android:layout_marginBottom="22dp"
             android:background="@drawable/rounded_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     <TextView
-            android:id="@+id/forgot_pwd"
+            android:id="@+id/txt_forgotpwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forgot Password?"
+            android:text="@string/forgot_password"
             android:textSize="@dimen/editText_size"
             android:textColor="@color/whiteColor"
             android:textAlignment="center"
