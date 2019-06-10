@@ -8,9 +8,23 @@
     <android.support.v7.widget.Toolbar
 
             android:id="@+id/id_toolbar"
-            style="@style/app_toolbarStyle"
+            android:textAlignment="center"
             app:logo="@drawable/menu_icon"
+            style="@style/app_toolbarStyle"
+            android:layout_height="wrap_content">
 
-    />
+
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/whiteColor"
+                    android:text="@string/neostore"
+                  android:textAlignment="center"
+        />
+
+
+
+    </android.support.v7.widget.Toolbar>
+
 
 </LinearLayout>

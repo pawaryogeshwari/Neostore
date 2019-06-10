@@ -17,6 +17,8 @@ class RegistrationActivity : BaseActivity() {
             val reg=Intent(this@RegistrationActivity,HomeActivity::class.java)
             startActivity(reg)
         }
+        setToolBar("Register")
+
         }
 
 
