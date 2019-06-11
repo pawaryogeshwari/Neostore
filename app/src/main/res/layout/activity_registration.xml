@@ -157,11 +157,11 @@
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>
 
-    <TextView
+    <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/start_padding"
-            android:drawableLeft="@drawable/checked_icon"
+            android:clickable="true"
             android:text="@string/i_agree_the_terms_and_condition"
             android:textSize="13sp"
             android:textColor="@color/whiteColor"

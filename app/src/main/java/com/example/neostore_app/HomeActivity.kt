@@ -2,9 +2,7 @@ package com.example.neostore_app
 
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
-import android.widget.Toolbar
-import kotlinx.android.synthetic.main.activity_home.*
+import com.example.neostore_app.activitity.BaseActivity
 
 class HomeActivity : BaseActivity()
 {

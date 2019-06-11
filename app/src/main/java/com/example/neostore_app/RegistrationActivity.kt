@@ -2,7 +2,7 @@ package com.example.neostore_app
 
 import android.content.Intent
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_home.*
+import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class RegistrationActivity : BaseActivity() {
