@@ -48,6 +48,8 @@
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
             android:paddingStart="@dimen/start_padding"
+            android:textColor="@color/whiteColor"
+            android:id="@+id/textFirstName"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:hint="@string/first_name"
@@ -57,6 +59,8 @@
 
             android:background="@drawable/edit_text_style"
             android:drawablePadding="@dimen/start_padding"
+            android:textColor="@color/whiteColor"
+            android:id="@+id/textLastName"
             android:drawableLeft="@drawable/username_icon"
             android:paddingStart="@dimen/start_padding"
             android:hint="@string/last_name"
@@ -66,8 +70,10 @@
     <EditText
 
             android:paddingStart="@dimen/start_padding"
+            android:textColor="@color/whiteColor"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
+            android:id="@+id/textEmail"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/email_icon"
             android:hint="@string/email"
@@ -78,6 +84,8 @@
             android:paddingStart="@dimen/start_padding"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
+            android:textColor="@color/whiteColor"
+            android:id="@+id/textPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
@@ -87,8 +95,10 @@
 
     <EditText
             android:paddingStart="@dimen/start_padding"
+            android:textColor="@color/whiteColor"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
+            android:id="@+id/textConfirmPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/confirm_pwd_icon"
             android:hint="@string/confirm_password"
@@ -148,11 +158,14 @@
 
             android:background="@drawable/edit_text_style"
             android:paddingStart="@dimen/start_padding"
+
+            android:id="@+id/textPhoneNumber"
+            android:textColor="@color/whiteColor"
             style="@style/app_TextStyle"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/cellphone"
             android:hint="@string/phone_number"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>

@@ -2,6 +2,8 @@ package com.example.neostore_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
+import android.widget.Toast
 import com.example.neostore_app.activitity.BaseActivity
 import com.example.neostore_app.model.Api
 import com.example.neostore_app.model.ApiManager
@@ -17,28 +19,53 @@ class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        txt_forgotpwd.setOnClickListener {
-            val intent1 = Intent(this@LoginActivity, ForgotpwdActivity::class.java)
+        text_SignUp.setOnClickListener {
+            val intent1 = Intent(this@LoginActivity, RegistrationActivity::class.java)
             startActivity(intent1)
         }
 
 
         btn_login.setOnClickListener {
-            val email = email_add.toString().trim()
-            val password = password.toString().trim()
+            val email = email_add.text.toString().trim()
+            val password = passwordText.text.toString().trim()
+
+            fun checkData():Boolean {
+
+                if((TextUtils.isEmpty(email))||(TextUtils.isEmpty(password)))
+                {
+                    email_add.error="email required"
+                    passwordText.error="password required"
+                    email_add.requestFocus()
+                     return false
+                }
+                return true
+
+            }
 
 
-            val api = ApiManager.getClient().create(Api::class.java)
-                .userLogin(email, password)
+            val isValidate:Boolean=checkData()
+
+            if(isValidate)
+
+             ApiManager.getClient().create(Api::class.java)
+               .userLogin(email, password)
                 .enqueue(object : Callback<LoginResponse> {
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                     Toast.makeText(this@LoginActivity,t.message,Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
 
+
+                        if (response.body() != null) {
+
+                            showMessage(response.body()?.message)
+                        }
+                        else {
+                            Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
                 })
 
         }

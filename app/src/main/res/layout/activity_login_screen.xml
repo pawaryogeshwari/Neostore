@@ -22,10 +22,13 @@
             android:id="@+id/email_add"
             android:background="@drawable/edit_text_style"
             android:hint="@string/username"
+            android:textColor="@color/whiteColor"
+            android:inputType="textEmailAddress"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:textColorHint="@color/whiteColor"
             android:textSize="@dimen/editText_size"
+            android:text="dipak.deshmukh@gmail.com"
             android:paddingStart="@dimen/start_padding"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>
@@ -33,12 +36,15 @@
 
             style="@style/app_TextStyle"
             android:background="@drawable/edit_text_style"
-            android:id="@+id/password"
+            android:id="@+id/passwordText"
             android:paddingStart="@dimen/start_padding"
+            android:textColor="@color/whiteColor"
+            android:inputType="textPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
             android:textSize="@dimen/editText_size"
+            android:text="Dipakd12"
             android:textColorHint="@color/whiteColor"
             android:layout_marginBottom="34dp"
             android:paddingLeft="@dimen/start_padding"/>
@@ -66,6 +72,7 @@
 
     <TextView
             android:layout_width="match_parent"
+            android:id="@+id/text_SignUp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/plus"
             android:text="@string/dont_have_an_account"
