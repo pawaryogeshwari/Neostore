@@ -53,6 +53,7 @@
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:hint="@string/first_name"
+            android:text="yogita"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>
     <EditText
@@ -63,6 +64,7 @@
             android:id="@+id/textLastName"
             android:drawableLeft="@drawable/username_icon"
             android:paddingStart="@dimen/start_padding"
+            android:text="pawar"
             android:hint="@string/last_name"
             style="@style/app_TextStyle"
             android:layout_marginBottom="@dimen/bottom_margin"
@@ -77,6 +79,7 @@
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/email_icon"
             android:hint="@string/email"
+            android:text="yogita@gmail.com"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>
 
@@ -89,6 +92,7 @@
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
+            android:text="123456"
             android:inputType="textPassword"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>
@@ -98,6 +102,7 @@
             android:textColor="@color/whiteColor"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
+            android:text="123456"
             android:id="@+id/textConfirmPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/confirm_pwd_icon"
@@ -166,6 +171,7 @@
             android:drawableLeft="@drawable/cellphone"
             android:hint="@string/phone_number"
             android:inputType="number"
+            android:text="8654789625"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:paddingLeft="@dimen/start_padding"/>

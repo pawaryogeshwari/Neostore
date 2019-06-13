@@ -29,45 +29,44 @@ class LoginActivity : BaseActivity() {
             val email = email_add.text.toString().trim()
             val password = passwordText.text.toString().trim()
 
-            fun checkData():Boolean {
+            fun checkData(): Boolean {
 
-                if((TextUtils.isEmpty(email))||(TextUtils.isEmpty(password)))
-                {
-                    email_add.error="email required"
-                    passwordText.error="password required"
+                if ((TextUtils.isEmpty(email)) || (TextUtils.isEmpty(password))) {
+                    email_add.error = "email required"
+                    passwordText.error = "password required"
                     email_add.requestFocus()
-                     return false
+                    return false
                 }
                 return true
 
             }
 
 
-            val isValidate:Boolean=checkData()
+            val isValidate: Boolean = checkData()
 
-            if(isValidate)
+            if (isValidate) {
 
-             ApiManager.getClient().create(Api::class.java)
-               .userLogin(email, password)
-                .enqueue(object : Callback<LoginResponse> {
-                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                     Toast.makeText(this@LoginActivity,t.message,Toast.LENGTH_SHORT).show()
-                    }
-
-                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
-
-                        if (response.body() != null) {
-
-                            showMessage(response.body()?.message)
+                ApiManager.getClient().create(Api::class.java)
+                    .userLogin(email, password)
+                    .enqueue(object : Callback<LoginResponse> {
+                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                            Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_SHORT).show()
                         }
-                        else {
-                            Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
 
+                        override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+
+
+                            if (response.body() != null) {
+
+                                showMessage(response.body()?.message)
+                            } else {
+                                Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+
+                            }
                         }
-                    }
-                })
+                    })
 
+            }
         }
     }
 }

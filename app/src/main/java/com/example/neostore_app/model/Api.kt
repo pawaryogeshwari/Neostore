@@ -15,7 +15,8 @@ fun userCreate(
         @Field("email")email: String,
         @Field("password")password: String,
         @Field("confirm_password")confirm_password:String,
-        @Field("phone_no")phone_no:Number
+        @Field("phone_no")phone_no:Number,
+        @Field("gender")gender:String
     ):Call<LoginResponse>
 
 
