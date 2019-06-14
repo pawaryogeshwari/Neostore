@@ -1,8 +1,8 @@
-package com.example.neostore_app
+package com.example.neostore_app.activitity
 
 import android.os.Bundle
 import android.text.TextUtils
-import com.example.neostore_app.activitity.BaseActivity
+import com.example.neostore_app.R
 import com.example.neostore_app.model.Api
 import com.example.neostore_app.model.ApiManager
 import com.example.neostore_app.model.LoginResponse

@@ -1,7 +1,7 @@
-package com.example.neostore_app
+package com.example.neostore_app.activitity
 
 import android.os.Bundle
-import com.example.neostore_app.activitity.BaseActivity
+import com.example.neostore_app.R
 
 class ForgotpwdActivity : BaseActivity() {
 

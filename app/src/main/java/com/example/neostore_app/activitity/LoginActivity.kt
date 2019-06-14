@@ -1,10 +1,11 @@
-package com.example.neostore_app
+package com.example.neostore_app.activitity
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.Toast
-import com.example.neostore_app.activitity.BaseActivity
+import com.example.neostore_app.MVP.LoginContract
+import com.example.neostore_app.MVP.LoginPresnter
+import com.example.neostore_app.R
 import com.example.neostore_app.model.Api
 import com.example.neostore_app.model.ApiManager
 import com.example.neostore_app.model.LoginResponse
@@ -13,7 +14,32 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : BaseActivity() {
+class LoginActivity : BaseActivity(), LoginContract.View {
+
+  val presnter = LoginPresnter(this)
+
+    override fun showPasswordError() {
+        passwordText.error = "password required"
+        passwordText.requestFocus()
+    }
+
+    override fun showEmailError() {
+        email_add.error = "email required"
+        email_add.requestFocus()
+    }
+
+    override fun loginSucess() {
+
+    showMessage("Login Sucessful")
+    }
+
+    override fun loginFailure() {
+
+        showMessage("Login Failed")
+    }
+
+
+
 
     override var getLayout = R.layout.activity_login_screen
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,20 +55,9 @@ class LoginActivity : BaseActivity() {
             val email = email_add.text.toString().trim()
             val password = passwordText.text.toString().trim()
 
-            fun checkData(): Boolean {
-
-                if ((TextUtils.isEmpty(email)) || (TextUtils.isEmpty(password))) {
-                    email_add.error = "email required"
-                    passwordText.error = "password required"
-                    email_add.requestFocus()
-                    return false
-                }
-                return true
-
-            }
 
 
-            val isValidate: Boolean = checkData()
+            val isValidate: Boolean = presnter.validateData(email, password)
 
             if (isValidate) {
 
@@ -60,7 +75,7 @@ class LoginActivity : BaseActivity() {
 
                                 showMessage(response.body()?.message)
                             } else {
-                                Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+                               showMessage("Login Failed")
 
                             }
                         }

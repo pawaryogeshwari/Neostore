@@ -14,20 +14,20 @@
             android:usesCleartextTraffic="true"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        <activity android:name=".activitity.HomeActivity">
         </activity>
         <activity
-                android:name=".ForgotpwdActivity"
+                android:name=".activitity.ForgotpwdActivity"
                 android:label="@string/title_activity_forgotpwd"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".RegistrationActivity"
+                android:name=".activitity.RegistrationActivity"
                 android:label="@string/title_activity_registration"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".LoginActivity"
+                android:name=".activitity.LoginActivity"
                 android:label="@string/title_activity_login_screen"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
