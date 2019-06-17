@@ -1,4 +1,4 @@
-package com.example.neostore_app.model
+package com.example.neostore_app
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
