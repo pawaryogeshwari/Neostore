@@ -4,6 +4,8 @@ import android.text.TextUtils
 import com.example.neostore_app.Api
 import com.example.neostore_app.ApiManager
 import com.example.neostore_app.model.LoginResponse
+import com.example.neostore_app.network.APICallback
+import com.example.neostore_app.network.APIRetrofit
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,32 +33,25 @@ class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {
         mview = null
     }
 
+
     override fun login(email: String, password: String) {
+        APIRetrofit().userLogin(email, password, object : APICallback<LoginResponse>() {
+            override fun onFailure(t: Throwable) {
 
-        val apiService = ApiManager.getClient().create(Api::class.java)
-        apiService.userLogin(email, password)
-            .enqueue(object : Callback<LoginResponse> {
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                mview?.loginFailure("login failed")
+            }
 
-                    mview?.loginFailure("Login Failed")
 
+            override fun response(status: Int, response: LoginResponse?) {
+
+                when(status)
+                {
+                    200->{mview?.loginSucess(response?.message!!)}
+                    401->{mview?.loginFailure("Login Failed")}
                 }
 
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-
-
-                    if (response.body() != null) {
-
-                        mview?.loginSucess(response.body()?.message!!)
-
-                    } else {
-
-                        mview?.loginFailure("login failed")
-
-                    }
-                }
-            })
-
+            }
+        })
 
     }
 
@@ -76,5 +71,4 @@ class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {
             else -> return true
         }
     }
-
 }

@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:background="@color/RedColor"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -31,7 +31,6 @@
                   android:gravity="center">
 
 
-
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,16 +41,15 @@
             android:padding="@dimen/text_padding"/>
 
 
-
-
     <EditText
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
             android:paddingStart="@dimen/start_padding"
             android:textColor="@color/whiteColor"
-            android:id="@+id/textFirstName"
+            android:id="@+id/etFirstName"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
+
             android:hint="@string/first_name"
 
             android:layout_marginBottom="@dimen/bottom_margin"
@@ -61,7 +59,7 @@
             android:background="@drawable/edit_text_style"
             android:drawablePadding="@dimen/start_padding"
             android:textColor="@color/whiteColor"
-            android:id="@+id/textLastName"
+            android:id="@+id/etLastName"
             android:drawableLeft="@drawable/username_icon"
             android:paddingStart="@dimen/start_padding"
 
@@ -75,7 +73,7 @@
             android:textColor="@color/whiteColor"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
-            android:id="@+id/textEmail"
+            android:id="@+id/etEmail"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/email_icon"
             android:hint="@string/email"
@@ -88,7 +86,7 @@
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
             android:textColor="@color/whiteColor"
-            android:id="@+id/textPassword"
+            android:id="@+id/etPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
@@ -103,7 +101,7 @@
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
 
-            android:id="@+id/textConfirmPassword"
+            android:id="@+id/etConfirmPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/confirm_pwd_icon"
             android:hint="@string/confirm_password"
@@ -144,6 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/male"
                     android:textSize="@dimen/editText_size"
+                    android:buttonTint="@color/whiteColor"
                     android:textColor="@color/whiteColor"
             />
 
@@ -153,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/female"
                     android:textSize="@dimen/editText_size"
+                    android:buttonTint="@color/whiteColor"
                     android:textColor="@color/whiteColor"
             />
         </RadioGroup>
@@ -164,7 +164,7 @@
             android:background="@drawable/edit_text_style"
             android:paddingStart="@dimen/start_padding"
 
-            android:id="@+id/textPhoneNumber"
+            android:id="@+id/etPhoneNumber"
             android:textColor="@color/whiteColor"
             style="@style/app_TextStyle"
             android:drawablePadding="@dimen/start_padding"
@@ -180,6 +180,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/start_padding"
             android:clickable="true"
+            android:buttonTint="@color/whiteColor"
             android:text="@string/i_agree_the_terms_and_condition"
             android:textSize="13sp"
             android:textColor="@color/whiteColor"

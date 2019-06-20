@@ -22,13 +22,13 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".activitity.RegistrationActivity"
+                android:name=".Registration.RegistrationActivity"
                 android:label="@string/title_activity_registration"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".Login.LoginActivity"
-                android:label="@string/title_activity_login_screen"
+                android:label="NeoSTORE"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
