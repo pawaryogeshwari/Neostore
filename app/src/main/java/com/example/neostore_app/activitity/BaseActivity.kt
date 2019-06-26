@@ -5,12 +5,15 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_home.*
 
 abstract class BaseActivity:AppCompatActivity(),BaseView {
 
     abstract val getLayout: Int
     abstract val getPresenter:BasePresenter
+
+//    abstract var mDisposable: Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +41,13 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
         super.onStop()
         getPresenter.stop()
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        mDisposable.dispose()
+//    }
+//
+
 
     override fun showError(message:String){
 

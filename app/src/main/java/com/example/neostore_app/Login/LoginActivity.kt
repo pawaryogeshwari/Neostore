@@ -6,15 +6,22 @@ import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
 import com.example.neostore_app.Registration.RegistrationActivity
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_login_screen.*
 
 class LoginActivity : BaseActivity(), LoginContract.View {
+//    override var mDisposable: Disposable
+//        get() = mDisposable
+//        set(value) {}
 
 
     var  presenter = LoginPresnter(this)
 
+
     override val getPresenter: BasePresenter
         get() = presenter
+
+
 
 
     override var getLayout = R.layout.activity_login_screen
@@ -64,9 +71,5 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun loginFailure(message: String) {
         showMessage(message)
     }
-
-
-
-
 
 }

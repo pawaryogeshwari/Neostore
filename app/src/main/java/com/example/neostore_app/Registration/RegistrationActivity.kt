@@ -1,11 +1,17 @@
 package com.example.neostore_app.Registration
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
+import com.example.neostore_app.activitity.HomeActivity
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class RegistrationActivity : BaseActivity(),RegisterContract.view {
+//    override var mDisposable: Disposable
+//        get() = mDisposable
+//        set(value) {}
 
 
     var  presenter = RegisterPresenter(this)
@@ -19,6 +25,9 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
         super.onCreate(savedInstanceState)
 
         btn_register.setOnClickListener {
+
+            val intent = Intent(this@RegistrationActivity,HomeActivity::class.java)
+            startActivity(intent)
 
             val first_name = etFirstName.text.toString().trim()
             val last_name = etLastName.text.toString().trim()
@@ -47,6 +56,8 @@ val isvalidate:Boolean = presenter.validation(first_name,last_name,email,passwor
             if (isvalidate) {
 
               presenter.register(first_name, last_name, email, password, confirm_password, phone_no.toLong(), gender)
+
+
 
             }
         }

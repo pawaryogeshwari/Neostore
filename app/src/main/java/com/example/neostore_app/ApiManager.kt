@@ -1,5 +1,6 @@
 package com.example.neostore_app
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,7 +17,7 @@ class ApiManager {
             val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
             return Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(URL).addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
                 .addConverterFactory(GsonConverterFactory.create()).client(client)
                 .build()

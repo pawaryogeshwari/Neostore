@@ -5,8 +5,12 @@ import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.Login.LoginContract
 import com.example.neostore_app.Login.LoginPresnter
 import com.example.neostore_app.R
+import io.reactivex.disposables.Disposable
 
 class ForgotpwdActivity : BaseActivity(),LoginContract.View {
+//    override var mDisposable: Disposable
+//        get() = mDisposable
+//        set(value) {}
 
 
     var  presnter = LoginPresnter(this)
