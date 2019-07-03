@@ -17,8 +17,8 @@ class APIRetrofit {
 
     fun userCreate(first_name:String,last_name:String,email: String,password: String,confirm_password:String,phone_no:Number,gender:String,callback: Callback<LoginResponse>)
     {
-        val apiManager=ApiManager.getClient().create(Api::class.java)
-            .userCreate(first_name,last_name,email, password, confirm_password, phone_no, gender)
-        apiManager.enqueue(callback)
+//        val apiManager=ApiManager.getClient().create(Api::class.java)
+//            .userCreate(first_name,last_name,email, password, confirm_password, phone_no, gender)
+//        apiManager.enqueue(callback)
     }
 }

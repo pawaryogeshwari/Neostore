@@ -1,13 +1,22 @@
 package com.example.neostore_app.Login
 
+
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import com.example.neostore_app.Api
 import com.example.neostore_app.BasePresenter
+import com.example.neostore_app.DI.DemoApplication
 import com.example.neostore_app.R
-import com.example.neostore_app.activitity.BaseActivity
 import com.example.neostore_app.Registration.RegistrationActivity
-import io.reactivex.disposables.Disposable
+import com.example.neostore_app.activitity.BaseActivity
+import com.example.neostore_app.activitity.HomeActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_login_screen.*
+import retrofit2.Retrofit
+import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 //    override var mDisposable: Disposable
@@ -15,11 +24,12 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 //        set(value) {}
 
 
-    var  presenter = LoginPresnter(this)
+    var presenter = LoginPresnter(this)
 
 
-    override val getPresenter: BasePresenter
+  override val getPresenter: BasePresenter
         get() = presenter
+
 
 
 
@@ -27,25 +37,33 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override var getLayout = R.layout.activity_login_screen
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         tvSignUp.setOnClickListener {
             val intent1 = Intent(this@LoginActivity, RegistrationActivity::class.java)
             startActivity(intent1)
         }
 
 
+
+
+
+
         btn_login.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
+val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
 
             val isValidate: Boolean = presenter.validateData(email, password)
 
-            if(isValidate)
-            {
+            if (isValidate) {
                 presenter.login(email, password)
             }
+
 
 
         }
@@ -54,17 +72,16 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun showPasswordError() {
         etPassword.error = "password required"
-      etPassword.requestFocus()
+        etPassword.requestFocus()
     }
 
     override fun showEmailError() {
-       etEmail.error = "email required"
+        etEmail.error = "email required"
         etEmail.requestFocus()
     }
 
 
-
-    override fun loginSucess(message:String) {
+    override fun loginSucess(message: String) {
         showMessage(message)
     }
 

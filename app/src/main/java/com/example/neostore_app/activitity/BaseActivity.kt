@@ -1,6 +1,7 @@
 package com.example.neostore_app.activitity
 
 import android.os.Bundle
+import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
@@ -19,11 +20,13 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
         super.onCreate(savedInstanceState)
         setContentView(getLayout)
 
+
+
     }
     fun setToolBar(title: String)
     {
 
-        setSupportActionBar(id_toolbar)
+        setSupportActionBar(id_menu)
         setTitle(title)
 
     }

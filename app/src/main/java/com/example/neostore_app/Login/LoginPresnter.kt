@@ -1,15 +1,25 @@
 package com.example.neostore_app.Login
 
+import android.app.Application
 import android.text.TextUtils
 import com.example.neostore_app.Api
-import com.example.neostore_app.ApiManager
+import com.example.neostore_app.DI.DemoApplication
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import retrofit2.Retrofit
+import javax.inject.Inject
 
 
 class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {
     var mview: LoginContract.View? = null
+
+
+
+
+    @Inject
+    lateinit var ret: Retrofit
+
 
 
 
@@ -35,27 +45,40 @@ class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {
 
 
 
+//init {
+//
+//
+//    ( application as  DemoApplication).getComponent().inject(this)
+//
+//}
+//
+//
+
+
+
+
+
 
 
     override fun login(email: String, password: String) {
 
-       val apiService= ApiManager.getClient().create(Api::class.java)
-           apiService.userLogin(email, password).subscribeOn(Schedulers.io())
-               .observeOn(AndroidSchedulers.mainThread())
-               .subscribeBy(
-                onNext = {
+     val apiService= ret.create(Api::class.java)
+          apiService.userLogin(email, password).subscribeOn(Schedulers.io())
+             .observeOn(AndroidSchedulers.mainThread())
+              .subscribeBy(
+               onNext = {
                     if(it!=null)
-                    {
-                       mview?.loginSucess(it.data?.firstName!!)
-                    }
-                },
-                   onError = {
-                       mview?.loginFailure("Login Failed")
+                   {
+                     mview?.loginSucess(it.data?.firstName!!)
+                }
+               },
+                  onError = {
+                    mview?.loginFailure("Login Failed")
                    },
-                   onComplete = {
-                       mview?.loginSucess("Login sucessful")
-                   }
-               )
+                  onComplete = {
+                      mview?.loginSucess("Login sucessful")
+                  }
+              )
 
 
 
