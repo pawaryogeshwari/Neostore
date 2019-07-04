@@ -3,20 +3,12 @@ package com.example.neostore_app.Login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.example.neostore_app.Api
 import com.example.neostore_app.BasePresenter
-import com.example.neostore_app.DI.DemoApplication
 import com.example.neostore_app.R
 import com.example.neostore_app.Registration.RegistrationActivity
 import com.example.neostore_app.activitity.BaseActivity
-import com.example.neostore_app.activitity.HomeActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
+import com.example.neostore_app.HomeScreen.HomeActivity
 import kotlinx.android.synthetic.main.activity_login_screen.*
-import retrofit2.Retrofit
-import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginContract.View {
 //    override var mDisposable: Disposable
@@ -55,7 +47,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         btn_login.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
-val intent = Intent(this,HomeActivity::class.java)
+val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
 
             val isValidate: Boolean = presenter.validateData(email, password)

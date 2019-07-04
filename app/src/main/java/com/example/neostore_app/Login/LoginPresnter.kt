@@ -1,9 +1,7 @@
 package com.example.neostore_app.Login
 
-import android.app.Application
 import android.text.TextUtils
 import com.example.neostore_app.Api
-import com.example.neostore_app.DI.DemoApplication
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -53,13 +51,6 @@ class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {
 //}
 //
 //
-
-
-
-
-
-
-
     override fun login(email: String, password: String) {
 
      val apiService= ret.create(Api::class.java)

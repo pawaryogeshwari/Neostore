@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="192dp"
-              android:background="?attr/colorPrimaryDark"
-              android:padding="16dp"
-              android:theme="@style/ThemeOverlay.AppCompat.Dark"
+              android:layout_height="200dp"
+              android:background="#ff212121"
+              android:padding="20dp"
               android:orientation="vertical"
               android:gravity="bottom">
 
-    <TextView
-            android:layout_width="match_parent"
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My header title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/profile"
+            android:id="@+id/circleView"
+
+    />
+
+
+
+    <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:textColor="@color/whiteColor"
+            android:text="kinjal.jain"
+
+    />
+    <TextView
+            android:id="@+id/tvEmailId"
+            android:layout_width="wrap_content"
+              android:layout_height="16dp"
+              android:textColor="@color/whiteColor"
+              android:text="kinjal.jain@wwindia.com"
+
+    />
+
+
 
 </LinearLayout>

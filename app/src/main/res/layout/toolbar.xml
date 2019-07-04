@@ -1,0 +1,34 @@
+<android.support.v7.widget.Toolbar
+
+        android:id="@+id/id_toolbar"
+        android:textAlignment="center"
+        style="@style/app_toolbarStyle"
+        android:minHeight="?attr/actionBarSize"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_icon"
+    />
+
+
+    <TextView
+            android:id="@+id/tvtitle"
+            android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/whiteColor"
+            android:textAlignment="center"
+
+    />
+    <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search_icon"
+    />
+
+
+</android.support.v7.widget.Toolbar>

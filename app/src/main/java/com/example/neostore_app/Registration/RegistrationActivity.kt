@@ -2,11 +2,13 @@ package com.example.neostore_app.Registration
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
-import com.example.neostore_app.activitity.HomeActivity
-import io.reactivex.disposables.Disposable
+import com.example.neostore_app.HomeScreen.HomeActivity
 import kotlinx.android.synthetic.main.activity_registration.*
+
+import kotlinx.android.synthetic.main.toolbar.*
 
 class RegistrationActivity : BaseActivity(),RegisterContract.view {
 //    override var mDisposable: Disposable
@@ -24,9 +26,18 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setSupportActionBar(id_toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        iv_menu.setVisibility(View.GONE);
+        ivSearch.setVisibility(View.GONE)
+
+    tvtitle.setText("Register")
+
         btn_register.setOnClickListener {
 
-            val intent = Intent(this@RegistrationActivity,HomeActivity::class.java)
+            val intent = Intent(this@RegistrationActivity, HomeActivity::class.java)
             startActivity(intent)
 
             val first_name = etFirstName.text.toString().trim()
