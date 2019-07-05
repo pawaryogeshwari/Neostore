@@ -31,7 +31,7 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         iv_menu.setVisibility(View.GONE);
-        ivSearch.setVisibility(View.GONE)
+
 
     tvtitle.setText("Register")
 

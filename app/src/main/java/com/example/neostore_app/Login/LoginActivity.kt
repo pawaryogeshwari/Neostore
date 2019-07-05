@@ -22,10 +22,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
   override val getPresenter: BasePresenter
         get() = presenter
 
-
-
-
-
     override var getLayout = R.layout.activity_login_screen
 
 
