@@ -1,18 +1,10 @@
 package com.example.neostore_app.activitity
 
 import android.os.Bundle
-import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
-import com.example.neostore_app.R
-import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_registration.*
-import kotlinx.android.synthetic.main.toolbar.*
-import kotlinx.android.synthetic.main.toolbar.id_toolbar
 
 abstract class BaseActivity:AppCompatActivity(),BaseView {
 

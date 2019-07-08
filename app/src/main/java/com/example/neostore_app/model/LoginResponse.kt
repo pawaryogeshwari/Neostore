@@ -1,6 +1,5 @@
 package com.example.neostore_app.model
 
-import com.example.neostore_app.model.DataItem
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(

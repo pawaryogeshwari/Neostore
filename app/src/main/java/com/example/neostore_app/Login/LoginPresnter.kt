@@ -6,7 +6,6 @@ import com.example.neostore_app.ApiManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Retrofit
 
 
 class LoginPresnter(view: LoginContract.View) : LoginContract.Presenter {

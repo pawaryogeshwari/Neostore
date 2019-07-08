@@ -1,4 +1,4 @@
-package com.example.neostore_app
+package com.example.neostore_app.HomeScreen
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -7,11 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import com.example.neostore_app.R
 
 class ViewPagerAdapter(private val context:Context):PagerAdapter() {
 
     private var layoutInflater : LayoutInflater? = null
-    val Image = arrayOf(R.drawable.slider_img1 , R.drawable.slider_img2 , R.drawable.slider_img3,R.drawable.slider_img4)
+    val Image = arrayOf(
+        R.drawable.slider_img1,
+        R.drawable.slider_img2,
+        R.drawable.slider_img3,
+        R.drawable.slider_img4
+    )
 
 
 

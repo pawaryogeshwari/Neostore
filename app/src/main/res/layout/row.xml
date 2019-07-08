@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+>
+<ImageView
+        android:id="@+id/ivProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/tvProductname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_toRightOf="@id/ivProducts"/>
+
+    <TextView
+            android:id="@+id/tvPdoductDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf ="@id/tvProductname"
+            android:layout_toRightOf="@id/ivProducts"/>
+
+    <TextView
+            android:id="@+id/tvProductCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tvPdoductDesc"
+            android:layout_toRightOf="@id/ivProducts"
+
+    />
+    <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:saveEnabled="true"
+            android:numStars="5"
+            android:layout_toRightOf="@id/tvProductCost"
+
+    />
+
+
+
+
+</RelativeLayout>

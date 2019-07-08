@@ -11,7 +11,6 @@ import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.Login.LoginContract
 import com.example.neostore_app.Login.LoginPresnter
 import com.example.neostore_app.R
-import com.example.neostore_app.ViewPagerAdapter
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
