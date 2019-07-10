@@ -10,6 +10,6 @@ class ProductContract {
     }
 
     interface Presenter:BasePresenter{
-        fun ProductList(product_category_id:String,limit:Number,page:Number)
+        fun productList(product_category_id:String,limit:String,page:String)
     }
 }

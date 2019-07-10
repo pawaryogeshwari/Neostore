@@ -29,14 +29,14 @@ fun userCreate(
         @Field("password") password:String
     ): Observable<LoginResponse>
 
-@FormUrlEncoded
+
 @GET("api/products/getList")
 fun productDetails(
     @Query("product_category_id")product_category_id:String,
-    @Query("limit")limit:Number,
-    @Query("page")page:Number
+    @Query("limit")limit:String,
+    @Query("page")page:String
 
 
-):Call<ProductResponse>
+):Observable<ProductResponse>
 
 }

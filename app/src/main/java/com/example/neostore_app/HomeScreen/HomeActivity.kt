@@ -1,6 +1,7 @@
 package com.example.neostore_app.HomeScreen
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -10,18 +11,21 @@ import android.view.Menu
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.Login.LoginContract
 import com.example.neostore_app.Login.LoginPresnter
+import com.example.neostore_app.Product.ProductActivity
 import com.example.neostore_app.R
+
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.util.*
 
 
+
+
+
+
 class HomeActivity : BaseActivity(),LoginContract.View
 {
-//    override var mDisposable: Disposable
-//        get() = mDisposable
-//        set(value) {}
 
 
     var  presenter = LoginPresnter(this)
@@ -35,13 +39,21 @@ class HomeActivity : BaseActivity(),LoginContract.View
 
         tvtitle.text = "NeoSTORE"
 
-       iv_menu.setOnClickListener {
+        iv_menu.setOnClickListener {
     drawer_layout.openDrawer(Gravity.LEFT)
 }
 
+
+        ivTables.setOnClickListener {
+            val bundle=Bundle()
+            bundle.putString("product_id","1")
+            val intent = Intent(this, ProductActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+
+
 init()
-
-
 
     }
 
@@ -72,26 +84,17 @@ init()
             }
         }, 2500, 2500)
 
-
-
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_search, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
-
-
-
-
-
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        val inflater = menuInflater
+//        inflater.inflate(R.menu.menu_search, menu)
+//        return true
+//    }
 
     companion object {
 
-        private var viewPager: ViewPager? = null
+        private lateinit var viewPager: ViewPager
         private var currentPage = 0
 
     }
