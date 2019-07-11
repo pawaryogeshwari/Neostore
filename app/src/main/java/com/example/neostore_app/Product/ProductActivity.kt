@@ -2,6 +2,7 @@ package com.example.neostore_app.Product
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
 import android.view.View
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.R
@@ -17,6 +18,8 @@ var presenter = ProductPresenter(this,this)
     override val getPresenter: BasePresenter
         get() = presenter
 
+
+
     override fun getProduct(message: String) {
 
 
@@ -26,12 +29,25 @@ var presenter = ProductPresenter(this,this)
         super.onCreate(savedInstanceState)
 
 
-        tvtitle.text = getString(R.string.table)
+        iv_menu.visibility = View.GONE
+
+        setSupportActionBar(id_toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+       setToolbar("Tables")
         presenter.productList(intent.extras?.get("product_id").toString(),"10","1")
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         presenter.setAdapter(my_recycler_view)
 
 
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_search, menu)
+        return true
     }
 
 

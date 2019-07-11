@@ -1,4 +1,4 @@
-package com.example.neostore_app.model
+package com.example.neostore_app.Login
 
 import com.google.gson.annotations.SerializedName
 

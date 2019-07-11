@@ -30,7 +30,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
 
 
-        tvSignUp.setOnClickListener {
+        ivSignup.setOnClickListener {
             val intent1 = Intent(this@LoginActivity, RegistrationActivity::class.java)
             startActivity(intent1)
         }

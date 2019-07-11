@@ -1,10 +1,9 @@
 package com.example.neostore_app.Registration
 
 import android.text.TextUtils
-import com.example.neostore_app.model.LoginResponse
+import com.example.neostore_app.Login.LoginResponse
 import com.example.neostore_app.network.APICallback
 import com.example.neostore_app.network.APIRetrofit
-import okhttp3.ResponseBody
 
 class RegisterPresenter(view: RegisterContract.view) :RegisterContract.presenter {
     override fun start() {

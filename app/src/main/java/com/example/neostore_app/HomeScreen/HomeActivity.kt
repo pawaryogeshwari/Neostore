@@ -20,10 +20,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 import java.util.*
 
 
-
-
-
-
 class HomeActivity : BaseActivity(),LoginContract.View
 {
 
@@ -37,13 +33,11 @@ class HomeActivity : BaseActivity(),LoginContract.View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        tvtitle.text = "NeoSTORE"
+      setToolbar("NeoSTORE")
 
         iv_menu.setOnClickListener {
-    drawer_layout.openDrawer(Gravity.LEFT)
-}
-
-
+            drawer_layout.openDrawer(Gravity.LEFT)
+        }
         ivTables.setOnClickListener {
             val bundle=Bundle()
             bundle.putString("product_id","1")
@@ -52,8 +46,31 @@ class HomeActivity : BaseActivity(),LoginContract.View
             startActivity(intent)
         }
 
+        ivSofa.setOnClickListener {
+            val bundle=Bundle()
+            bundle.putString("product_id","3")
+            val intent = Intent(this, ProductActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
 
-init()
+        ivChairs.setOnClickListener {
+            val bundle=Bundle()
+            bundle.putString("product_id","2")
+            val intent = Intent(this, ProductActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+
+        }
+        ivCupboards.setOnClickListener {
+
+            val bundle=Bundle()
+            bundle.putString("product_id","5")
+            val intent = Intent(this, ProductActivity::class.java)
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+        init()
 
     }
 
@@ -86,11 +103,11 @@ init()
 
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        val inflater = menuInflater
-//        inflater.inflate(R.menu.menu_search, menu)
-//        return true
-//    }
+   override fun onCreateOptionsMenu(menu: Menu): Boolean {
+       val inflater = menuInflater
+       inflater.inflate(R.menu.menu_search, menu)
+       return true
+   }
 
     companion object {
 
@@ -111,6 +128,7 @@ init()
     }
 
     override fun showPasswordError() {
+
     }
 }
 

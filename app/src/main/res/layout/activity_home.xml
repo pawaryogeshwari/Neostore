@@ -95,6 +95,7 @@
             android:layout_weight="1">
 
         <ImageView
+                android:id="@+id/ivChairs"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/chairsicon"
@@ -104,6 +105,8 @@
                 android:layout_weight="1"
         />
         <ImageView
+
+                android:id="@+id/ivCupboards"
                 android:layout_width="180dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/cupboardicon"

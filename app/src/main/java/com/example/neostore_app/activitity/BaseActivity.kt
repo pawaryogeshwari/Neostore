@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
+import kotlinx.android.synthetic.main.toolbar.*
 
 abstract class BaseActivity:AppCompatActivity(),BaseView {
 
@@ -19,6 +20,15 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
 
 
 
+    }
+
+
+    fun setToolbar(title:String)
+    {
+
+        setSupportActionBar(id_toolbar)
+        supportActionBar?.title = null
+        tvtitle.text = title
     }
 
     override fun onSupportNavigateUp(): Boolean {

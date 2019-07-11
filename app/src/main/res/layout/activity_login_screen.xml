@@ -8,7 +8,7 @@
         android:orientation="vertical">
 
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/neostore"
             android:textColor="@color/whiteColor"
@@ -67,23 +67,39 @@
             android:textColor="@color/whiteColor"
             android:textAlignment="center"
 
+
     />
 
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+    >
     <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:id="@+id/tvSignUp"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/plus"
             android:text="@string/dont_have_an_account"
             android:textSize="@dimen/editText_size"
             android:textColor="@color/whiteColor"
             android:layout_marginTop="@dimen/top_margin"
             android:layout_marginLeft="@dimen/left_margin"
+            android:paddingTop="52dp"
 
     />
+        <ImageView
+                android:id="@+id/ivSignup"
+                android:paddingTop="92dp"
+                 android:paddingLeft="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/plus"
+
+        />
 
 
+
+</LinearLayout>
 </LinearLayout>
 
 

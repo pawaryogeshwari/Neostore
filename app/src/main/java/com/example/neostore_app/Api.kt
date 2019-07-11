@@ -1,7 +1,7 @@
 package com.example.neostore_app
 
 import com.example.neostore_app.Product.ProductResponse
-import com.example.neostore_app.model.LoginResponse
+import com.example.neostore_app.Login.LoginResponse
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*

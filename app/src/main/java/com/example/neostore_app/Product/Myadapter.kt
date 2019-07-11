@@ -12,20 +12,11 @@ import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
 
-class Myadapter : RecyclerView.Adapter<Myadapter.MyViewHolder> {
-
-    private var data: List<DataItem>? = null
-    private var context: Context? = null
-
-constructor(data: List<DataItem>?, context: Context?)
-{
-    this.data = data
-    this.context = context
-}
+class Myadapter(private var data: List<DataItem>?, private var context: Context?) :
+    RecyclerView.Adapter<Myadapter.MyViewHolder>() {
 
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Myadapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row, parent, false)
         return MyViewHolder(view)
@@ -36,7 +27,7 @@ constructor(data: List<DataItem>?, context: Context?)
 return data!!.size
     }
 
-    override fun onBindViewHolder(holder: Myadapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         holder.prouctname.text = data!!.get(position).name
         holder.producer.text = data!!.get(position).producer
@@ -48,13 +39,6 @@ return data!!.size
 
     }
 
-
-    fun setToAdapter(data: List<DataItem>?) {
-
-        this.data = data
-        notifyDataSetChanged()
-
-    }
 
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {

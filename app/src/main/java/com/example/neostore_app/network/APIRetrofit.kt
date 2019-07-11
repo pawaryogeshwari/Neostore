@@ -2,7 +2,7 @@ package com.example.neostore_app.network
 
 import com.example.neostore_app.Api
 import com.example.neostore_app.ApiManager
-import com.example.neostore_app.model.LoginResponse
+import com.example.neostore_app.Login.LoginResponse
 import retrofit2.Callback
 
 class APIRetrofit {

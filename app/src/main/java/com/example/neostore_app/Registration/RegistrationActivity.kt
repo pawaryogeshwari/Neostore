@@ -2,6 +2,7 @@ package com.example.neostore_app.Registration
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
@@ -22,18 +23,24 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
 
 
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_search, menu)
+        return true
+    }
+
     override var getLayout = R.layout.activity_registration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(id_toolbar)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        iv_menu.setVisibility(View.GONE);
+        iv_menu.visibility = View.GONE
 
 
-    tvtitle.setText("Register")
+     setToolbar("Register")
 
         btn_register.setOnClickListener {
 
@@ -62,13 +69,9 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
 
 val isvalidate:Boolean = presenter.validation(first_name,last_name,email,password,confirm_password,phone_no,gender)
 
-
-
             if (isvalidate) {
 
               presenter.register(first_name, last_name, email, password, confirm_password, phone_no.toLong(), gender)
-
-
 
             }
         }

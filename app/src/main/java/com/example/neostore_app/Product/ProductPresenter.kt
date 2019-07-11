@@ -40,7 +40,7 @@ class ProductPresenter(view: ProductContract.View, context: Context) : ProductCo
                         myadapter = Myadapter(it.data, context)
                         mRecyclerView.adapter = myadapter
 
-                        mview?.getProduct(it.data!![1].name!!)
+
 
                     }
                 },
