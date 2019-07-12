@@ -24,10 +24,9 @@ class HomeActivity : BaseActivity(),LoginContract.View
 {
 
 
-    var  presenter = LoginPresnter(this)
-    override val getPresenter: BasePresenter
-        get() = presenter
-    override var getLayout= R.layout.activity_home
+    override val getPresenter: BasePresenter = LoginPresnter(this)
+
+    override val getLayout= R.layout.activity_home
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,39 +38,31 @@ class HomeActivity : BaseActivity(),LoginContract.View
             drawer_layout.openDrawer(Gravity.LEFT)
         }
         ivTables.setOnClickListener {
-            val bundle=Bundle()
-            bundle.putString("product_id","1")
-            val intent = Intent(this, ProductActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+            navigateToProductDetail("1")
         }
 
         ivSofa.setOnClickListener {
-            val bundle=Bundle()
-            bundle.putString("product_id","3")
-            val intent = Intent(this, ProductActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+           navigateToProductDetail("3")
         }
 
         ivChairs.setOnClickListener {
-            val bundle=Bundle()
-            bundle.putString("product_id","2")
-            val intent = Intent(this, ProductActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+            navigateToProductDetail("2")
 
         }
         ivCupboards.setOnClickListener {
 
-            val bundle=Bundle()
-            bundle.putString("product_id","5")
-            val intent = Intent(this, ProductActivity::class.java)
-            intent.putExtras(bundle)
-            startActivity(intent)
+         navigateToProductDetail("5")
         }
         init()
 
+    }
+
+    private fun navigateToProductDetail(id : String){
+        val bundle=Bundle()
+        bundle.putString("product_id",id)
+        val intent = Intent(this, ProductActivity::class.java)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 
     private fun init()

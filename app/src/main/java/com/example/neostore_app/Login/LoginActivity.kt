@@ -43,13 +43,14 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         btn_login.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
-val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+
 
             val isValidate: Boolean = presenter.validateData(email, password)
 
             if (isValidate) {
                 presenter.login(email, password)
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
             }
 
 

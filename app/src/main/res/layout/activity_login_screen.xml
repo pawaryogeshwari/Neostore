@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/constraintLayout"
         style="@style/Layout_margin"
-        android:orientation="vertical">
+        android:background="@color/RedColor">
 
     <TextView
+            android:id="@+id/neoSTORE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/neostore"
             android:textColor="@color/whiteColor"
             android:textSize="@dimen/text_size"
             android:textStyle="bold"
-            android:padding="@dimen/text_padding"
-
+            android:textAlignment="center"
+            android:layout_marginBottom="604dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="56dp"
     />
+
     <EditText
+
             style="@style/app_TextStyle"
             android:id="@+id/etEmail"
             android:background="@drawable/edit_text_style"
@@ -27,37 +33,45 @@
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/username_icon"
             android:textColorHint="@color/whiteColor"
-            android:textSize="@dimen/editText_size"
-            android:text="dipak.deshmukh@gmail.com"
             android:paddingStart="@dimen/start_padding"
-            android:layout_marginBottom="@dimen/bottom_margin"
-            android:paddingLeft="@dimen/start_padding"/>
+            android:paddingLeft="@dimen/start_padding"
+            android:textSize="@dimen/editText_size"
+            android:layout_marginBottom="502dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteX="68dp"/>
+
     <EditText
 
             style="@style/app_TextStyle"
-            android:background="@drawable/edit_text_style"
             android:id="@+id/etPassword"
-            android:paddingStart="@dimen/start_padding"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/password"
             android:textColor="@color/whiteColor"
             android:inputType="textPassword"
             android:drawablePadding="@dimen/start_padding"
-            android:drawableLeft="@drawable/password_icon"
-            android:hint="@string/password"
-            android:textSize="@dimen/editText_size"
-            android:text="Dipakd12"
+            android:drawableLeft="@drawable/username_icon"
             android:textColorHint="@color/whiteColor"
-            android:layout_marginBottom="34dp"
-            android:paddingLeft="@dimen/start_padding"/>
+            android:paddingStart="@dimen/start_padding"
+            android:paddingLeft="@dimen/start_padding"
+            android:textSize="@dimen/editText_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="440dp"/>
 
     <Button
             android:id="@+id/btn_login"
             android:text="@string/login"
             android:textColor="@color/RedColor"
             android:textSize="@dimen/btn_size"
-            android:layout_marginBottom="22dp"
             android:background="@drawable/rounded_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="340dp"
+            android:layout_marginLeft="4dp"/>
+
     <TextView
             android:id="@+id/tvForgotpwd"
             android:layout_width="match_parent"
@@ -66,15 +80,9 @@
             android:textSize="@dimen/editText_size"
             android:textColor="@color/whiteColor"
             android:textAlignment="center"
-
-
-    />
-
-
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal"
-    >
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="284dp"
+            tools:layout_editor_absoluteX="110dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:id="@+id/tvSignUp"
@@ -82,24 +90,19 @@
             android:text="@string/dont_have_an_account"
             android:textSize="@dimen/editText_size"
             android:textColor="@color/whiteColor"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginLeft="@dimen/left_margin"
-            android:paddingTop="52dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="152dp"
+            android:layout_marginLeft="36dp"/>
 
-    />
-        <ImageView
-                android:id="@+id/ivSignup"
-                android:paddingTop="92dp"
-                 android:paddingLeft="28dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/plus"
-
-        />
-
-
-
-</LinearLayout>
-</LinearLayout>
-
-
+    <ImageView
+            android:id="@+id/ivSignup"
+            android:paddingTop="92dp"
+            android:paddingLeft="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="152dp"/>
+</android.support.constraint.ConstraintLayout>
