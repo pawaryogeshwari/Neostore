@@ -18,8 +18,6 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
 
 
     var  presenter = RegisterPresenter(this)
-    override val getPresenter: RegisterPresenter
-        get() = presenter
 
 
 
@@ -33,7 +31,7 @@ class RegistrationActivity : BaseActivity(),RegisterContract.view {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        setSupportActionBar(id_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 

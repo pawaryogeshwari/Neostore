@@ -5,26 +5,41 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.support.design.widget.NavigationView
 import android.support.v4.view.ViewPager
 import android.view.Gravity
 import android.view.Menu
-import com.example.neostore_app.BasePresenter
-import com.example.neostore_app.Login.LoginContract
-import com.example.neostore_app.Login.LoginPresnter
+import android.view.MenuItem
+import com.example.neostore_app.Login.LoginActivity
 import com.example.neostore_app.Product.ProductActivity
 import com.example.neostore_app.R
-
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.util.*
 
+class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+    override fun onNavigationItemSelected(it: MenuItem): Boolean {
+        when(it.itemId)
+        {
+            R.id.logout ->{
 
-class HomeActivity : BaseActivity(),LoginContract.View
-{
+                val settings = getSharedPreferences("LoginDetails", 0)
+                val editor = settings.edit()
+                editor.clear()
+                editor.apply()
+                val intent1 = Intent(this@HomeActivity, LoginActivity::class.java)
+                startActivity(intent1)
+                finish()
 
 
-    override val getPresenter: BasePresenter = LoginPresnter(this)
+            }
+
+        }
+
+        return true
+    }
+
 
     override val getLayout= R.layout.activity_home
 
@@ -54,6 +69,8 @@ class HomeActivity : BaseActivity(),LoginContract.View
          navigateToProductDetail("5")
         }
         init()
+
+        nav_view.setNavigationItemSelectedListener(this)
 
     }
 
@@ -108,19 +125,6 @@ class HomeActivity : BaseActivity(),LoginContract.View
     }
 
 
-    override fun loginSucess(message: String) {
-
-    }
-
-    override fun loginFailure(message: String) {
-    }
-
-    override fun showEmailError() {
-    }
-
-    override fun showPasswordError() {
-
-    }
 }
 
 

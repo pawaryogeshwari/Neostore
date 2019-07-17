@@ -22,6 +22,8 @@
             android:layout_marginRight="56dp"
     />
 
+
+
     <EditText
 
             style="@style/app_TextStyle"
@@ -50,7 +52,7 @@
             android:textColor="@color/whiteColor"
             android:inputType="textPassword"
             android:drawablePadding="@dimen/start_padding"
-            android:drawableLeft="@drawable/username_icon"
+            android:drawableLeft="@drawable/password_icon"
             android:textColorHint="@color/whiteColor"
             android:paddingStart="@dimen/start_padding"
             android:paddingLeft="@dimen/start_padding"

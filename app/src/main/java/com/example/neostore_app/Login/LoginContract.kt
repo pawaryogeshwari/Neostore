@@ -6,7 +6,8 @@ import com.example.neostore_app.BaseView
 interface LoginContract {
     interface View : BaseView
     {
-        fun loginSucess(message:String)
+        fun loginSucess()
+        fun loginSucessMessage(message: String)
         fun loginFailure(message: String)
         fun showEmailError()
         fun showPasswordError()

@@ -7,15 +7,15 @@ import com.example.neostore_app.Login.LoginPresnter
 import com.example.neostore_app.R
 import io.reactivex.disposables.Disposable
 
-class ForgotpwdActivity : BaseActivity(),LoginContract.View {
+class ForgotpwdActivity : BaseActivity() {
+
 //    override var mDisposable: Disposable
 //        get() = mDisposable
 //        set(value) {}
 
 
-    var  presnter = LoginPresnter(this)
-    override val getPresenter: BasePresenter
-        get() = presnter
+
+
 
     override var getLayout = R.layout.activity_forgotpwd
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,17 +25,8 @@ class ForgotpwdActivity : BaseActivity(),LoginContract.View {
 
     }
 
-    override fun loginSucess(message: String) {
 
-    }
 
-    override fun loginFailure(message: String) {
-    }
 
-    override fun showEmailError() {
-    }
-
-    override fun showPasswordError() {
-    }
 }
 

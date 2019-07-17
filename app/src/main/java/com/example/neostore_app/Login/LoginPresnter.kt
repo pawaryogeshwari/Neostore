@@ -44,14 +44,15 @@ val apiservice = ApiManager.getClient().create(Api::class.java)
                onNext = {
                     if(it!=null)
                    {
-                     mview?.loginSucess(it.data?.firstName!!)
+                     mview?.loginSucess()
                 }
                },
                   onError = {
                     mview?.loginFailure("Login Failed")
                    },
                   onComplete = {
-                      mview?.loginSucess("Login sucessful")
+                    mview?.loginSucessMessage("Login Sucessful")
+
                   }
               )
 
@@ -64,17 +65,17 @@ val apiservice = ApiManager.getClient().create(Api::class.java)
     override fun validateData(email: String, password: String): Boolean {
 
 
-        when {
+        return when {
             TextUtils.isEmpty(email) -> {
 
                 mview?.showEmailError()
-                return false
+                false
             }
             TextUtils.isEmpty(password) -> {
                 mview?.showPasswordError()
-                return false
+                false
             }
-            else -> return true
+            else -> true
         }
     }
 }

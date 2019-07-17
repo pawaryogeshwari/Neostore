@@ -31,6 +31,8 @@
         </activity>
         <activity
                 android:name=".Login.LoginActivity"
+                android:noHistory="true"
+                android:launchMode="singleTop"
                 android:label="NeoSTORE"
                 android:theme="@style/AppTheme.NoActionBar">
 

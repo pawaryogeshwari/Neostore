@@ -37,7 +37,7 @@ class ProductPresenter(view: ProductContract.View, context: Context) : ProductCo
 
                     if (it != null) {
 
-                        myadapter = Myadapter(it.data, context)
+                        myadapter = Myadapter(it.data)
                         mRecyclerView.adapter = myadapter
 
 

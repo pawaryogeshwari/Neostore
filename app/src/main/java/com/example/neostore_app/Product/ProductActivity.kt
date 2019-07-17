@@ -15,13 +15,10 @@ class ProductActivity : BaseActivity() ,ProductContract.View{
 
 var presenter = ProductPresenter(this,this)
 
-    override val getPresenter: BasePresenter
-        get() = presenter
 
 
 
     override fun getProduct(message: String) {
-
 
     }
 
@@ -31,9 +28,8 @@ var presenter = ProductPresenter(this,this)
 
         iv_menu.visibility = View.GONE
 
-        setSupportActionBar(id_toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
+       setToolbarAsBack()
+
 
        setToolbar("Tables")
         presenter.productList(intent.extras?.get("product_id").toString(),"10","1")

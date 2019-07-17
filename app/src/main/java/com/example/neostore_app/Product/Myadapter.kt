@@ -1,6 +1,5 @@
 package com.example.neostore_app.Product
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,7 @@ import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
 
-class Myadapter(private var data: List<DataItem>?, private var context: Context?) :
-    RecyclerView.Adapter<Myadapter.MyViewHolder>() {
+class Myadapter(private var data: List<DataItem>?) : RecyclerView.Adapter<Myadapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -29,13 +27,13 @@ return data!!.size
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.prouctname.text = data!!.get(position).name
-        holder.producer.text = data!!.get(position).producer
-        holder.productCost.text = data!!.get(position).cost.toString()
-        holder.ratingbar.rating = data!!.get(position).rating!!.toFloat()
+        holder.prouctname.text = data!![position].name
+        holder.producer.text = data!![position].producer
+        holder.productCost.text = data!![position].cost.toString()
+        holder.ratingbar.rating = data!![position].rating!!.toFloat()
 
 
-        Picasso.get().load(data!!.get(position).productImages!!).into(holder.product)
+        Picasso.get().load(data!![position].productImages!!).into(holder.product)
 
     }
 

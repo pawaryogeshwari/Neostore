@@ -31,7 +31,6 @@ class ViewPagerAdapter(private val context:Context):PagerAdapter() {
     return Image.size
     }
 
-
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -53,5 +52,4 @@ class ViewPagerAdapter(private val context:Context):PagerAdapter() {
         vp.removeView(v)
 
     }
-
 }

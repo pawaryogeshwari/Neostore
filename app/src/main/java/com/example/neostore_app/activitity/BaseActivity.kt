@@ -5,12 +5,13 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
+import com.example.neostore_app.R
 import kotlinx.android.synthetic.main.toolbar.*
 
 abstract class BaseActivity:AppCompatActivity(),BaseView {
 
     abstract val getLayout: Int
-   abstract val getPresenter:BasePresenter
+    lateinit var getPresenter:BasePresenter
 
 //    abstract var mDisposable: Disposable
 
@@ -37,7 +38,13 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
     }
 
 
-
+fun setToolbarAsBack()
+{
+    setSupportActionBar(id_toolbar)
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    supportActionBar?.setDisplayShowHomeEnabled(true)
+    supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp)
+}
 
 
 
@@ -47,12 +54,12 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
 
     override fun onStart() {
         super.onStart()
-        getPresenter.start()
+
     }
 
     override fun onStop() {
         super.onStop()
-        getPresenter.stop()
+
     }
 
 //    override fun onDestroy() {
