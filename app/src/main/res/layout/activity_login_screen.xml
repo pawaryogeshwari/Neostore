@@ -21,10 +21,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginRight="56dp"
     />
-
-
-
-    <EditText
+    <android.support.design.widget.TextInputEditText
 
             style="@style/app_TextStyle"
             android:id="@+id/etEmail"
@@ -38,18 +35,21 @@
             android:paddingStart="@dimen/start_padding"
             android:paddingLeft="@dimen/start_padding"
             android:textSize="@dimen/editText_size"
+            android:clickable="true"
+            android:singleLine="true"
             android:layout_marginBottom="502dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             tools:layout_editor_absoluteX="68dp"/>
 
-    <EditText
+    <android.support.design.widget.TextInputEditText
 
             style="@style/app_TextStyle"
             android:id="@+id/etPassword"
             android:background="@drawable/edit_text_style"
             android:hint="@string/password"
             android:textColor="@color/whiteColor"
+            android:clickable="true"
             android:inputType="textPassword"
             android:drawablePadding="@dimen/start_padding"
             android:drawableLeft="@drawable/password_icon"

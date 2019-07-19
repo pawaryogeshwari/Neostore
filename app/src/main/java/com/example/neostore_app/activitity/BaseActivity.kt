@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
+import com.example.neostore_app.ProductDetail.ProductViewModel
 import com.example.neostore_app.R
 import kotlinx.android.synthetic.main.toolbar.*
 

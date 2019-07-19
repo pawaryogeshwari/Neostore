@@ -4,13 +4,21 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.View
-import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_product.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class ProductActivity : BaseActivity() ,ProductContract.View{
+
+
+    lateinit var myadapter: Myadapter
+
+    override fun setAdapter(product: ProductResponse) {
+        myadapter = Myadapter(this,product.data)
+        my_recycler_view.adapter = myadapter
+    }
+
     override val getLayout = R.layout.activity_product
 
 var presenter = ProductPresenter(this,this)
@@ -34,7 +42,6 @@ var presenter = ProductPresenter(this,this)
        setToolbar("Tables")
         presenter.productList(intent.extras?.get("product_id").toString(),"10","1")
         my_recycler_view.layoutManager = LinearLayoutManager(this)
-        presenter.setAdapter(my_recycler_view)
 
 
     }

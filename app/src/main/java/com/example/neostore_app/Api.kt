@@ -2,6 +2,8 @@ package com.example.neostore_app
 
 import com.example.neostore_app.Product.ProductResponse
 import com.example.neostore_app.Login.LoginResponse
+import com.example.neostore_app.ProductDetail.ProductDetailResponse
+import com.example.neostore_app.ProductDetail.ProductImage
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*
@@ -31,12 +33,20 @@ fun userCreate(
 
 
 @GET("api/products/getList")
-fun productDetails(
+fun productList(
     @Query("product_category_id")product_category_id:String,
     @Query("limit")limit:String,
     @Query("page")page:String
 
 
 ):Observable<ProductResponse>
+    @GET("api/products/getDetail")
+
+    fun productsDetails(
+
+        @Query("product_id")product_id:String
+    ):Observable<ProductDetailResponse>
+
+
 
 }

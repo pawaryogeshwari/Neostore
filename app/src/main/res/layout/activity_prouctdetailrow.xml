@@ -1,13 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_marginBottom="1dp">
 
-<EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <include layout="@layout/toolbar">
+    </include>
 
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/lRelatvie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="10dp"
+    >
+
+
+        <TextView
+                android:id="@+id/etProductName"
+                android:text="6 Seater Dinnig table"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginBottom="10dp"
+        />
+
+        <TextView
+                android:id="@+id/tvCategory"
+                android:text="Category tables"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etProductName"
+                android:textSize="16dp"
+        >
+
+        </TextView>
+
+        <TextView
+                android:id="@+id/tvProducerName"
+                android:text="Future furniture center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvCategory"
+
+        />
+        <RatingBar
+                android:id="@+id/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/ratingBarStyleSmall"
+                android:theme="@style/RatingBar"
+                android:layout_toRightOf="@id/tvProducerName"
+                android:layout_toEndOf="@id/tvProducerName"
+                android:layout_below="@id/tvCategory"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="80dp"
+
+        />
+
+
+        <ImageView
+                android:id="@+id/ivProductImg"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tvProducerName"
+                android:layout_marginTop="77dp"
+                android:layout_marginBottom="40dp"
+        />
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center_horizontal"
+                android:scrollbars="horizontal"
+                android:orientation="horizontal"
+                android:layout_below="@id/ivProductImg"
+
+
+        />
+
+        <TextView
+                android:id="@+id/tvCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/ivProductImg"
+                android:layout_below="@+id/tvProducerName"
+                android:layout_toLeftOf="@id/RatingBar"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="77dp"/>
+
+        <ImageView
+                android:id="@+id/ivShare"
+                android:src="@drawable/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/ivProductImg"
+                android:layout_below="@id/RatingBar"
+                android:layout_marginLeft="320dp"
+                android:layout_toRightOf="@id/tvCost"
+
+        />
+        <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="157dp"
+                android:text="Description"
+                android:layout_below="@id/ivProductImg"
+        />
+
+        <TextView
+
+                android:id="@+id/tvDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDescription"
+        />
+
+        <Button
+                android:id="@+id/btn_buyNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDesc"
+                android:text="BUY NOW"
+                android:layout_marginLeft="86dp"
+                android:layout_marginTop="114dp"
+                android:textColor="@color/whiteColor"
+                android:background="@drawable/buynow"
+        />
+
+        <Button
+                android:id="@+id/btn_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="114dp"
+                android:layout_below="@id/tvDesc"
+                android:layout_toRightOf="@id/btn_buyNow"
+                android:layout_marginLeft="44dp"
+                android:text="Rate"
+
+        />
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

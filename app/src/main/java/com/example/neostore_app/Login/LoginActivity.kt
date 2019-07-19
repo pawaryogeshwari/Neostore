@@ -39,13 +39,8 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         if(isLoggedIn )
         {
 
-            val email = settings.getString(EMAIL,EMPTY)
-            val password = settings.getString(PASSWORD,EMPTY)
-
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
-
-
         }
 
 
