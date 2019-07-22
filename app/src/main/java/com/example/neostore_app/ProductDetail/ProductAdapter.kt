@@ -9,12 +9,14 @@ import android.widget.ImageView
 import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(mContext : Context, private var data: List<ProductImage>?) : RecyclerView.Adapter<ProductAdapter.MyViewHolder>(){
+class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,private var listener:OnClickListerner) : RecyclerView.Adapter<ProductAdapter.MyViewHolder>(){
 
     private var context:Context? = null
 
+
     init {
         context = mContext
+
     }
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductAdapter.MyViewHolder {
 
@@ -28,10 +30,17 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?) 
         return data!!.size
     }
 
-    override fun onBindViewHolder(p0: ProductAdapter.MyViewHolder, p1: Int) {
+    override fun onBindViewHolder(p0: ProductAdapter.MyViewHolder, position: Int) {
 
-        Picasso.get().load(data!![p1].image).into(p0.productImg)
+        p0.productImg.setOnClickListener{
 
+        listener.onItemClick(position, data?.get(position)!!.image)
+
+
+
+        }
+
+        Picasso.get().load(data!![position].image).into(p0.productImg)
     }
 
 
@@ -43,7 +52,7 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?) 
     }
 
     interface OnClickListerner {
-        fun OnItemClick(position:Int)
+        fun onItemClick(position:Int,image:String)
 
 
     }
