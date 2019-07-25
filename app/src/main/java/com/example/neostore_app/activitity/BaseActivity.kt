@@ -42,6 +42,7 @@ abstract class BaseActivity:AppCompatActivity(),BaseView {
 fun setToolbarAsBack()
 {
     setSupportActionBar(id_toolbar)
+    supportActionBar?.title = null
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
     supportActionBar?.setDisplayShowHomeEnabled(true)
     supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp)

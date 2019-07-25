@@ -72,7 +72,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/tvProducerName"
                 android:layout_marginTop="88dp"
-                android:layout_marginBottom="40dp"
+
         />
 
 
@@ -93,38 +93,38 @@
 
         <TextView
                 android:id="@+id/tvCost"
-                android:textSize="15sp"
+                android:textSize="18dp"
                 android:textColor="@color/RedColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvProducerName"
-                android:layout_toLeftOf="@id/RatingBar"
+
         />
 
         <ImageView
                 android:id="@+id/ivShare"
                 android:src="@drawable/share"
+              android:layout_marginLeft="300dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvProducerName"
-                android:layout_marginLeft="200dp"
-                android:layout_toRightOf="@id/tvCost"
 
                 android:layout_marginBottom="2dp"/>
         <TextView
                 android:id="@+id/tvDescription"
+                android:textColor="@color/blackColor"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="157dp"
-                android:text="Description"
+                android:layout_marginTop="150dp"
+                android:text="DESCRIPTION"
                 android:layout_below="@id/ivProductImg"
         />
 
         <TextView
-
                 android:id="@+id/tvDesc"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_below="@id/tvDescription"
         />
 
@@ -135,7 +135,6 @@
                 android:layout_below="@id/tvDesc"
                 android:text="BUY NOW"
                 android:layout_marginLeft="86dp"
-                android:layout_marginTop="114dp"
                 android:textColor="@color/whiteColor"
                 android:background="@drawable/buynow"
         />
@@ -144,7 +143,6 @@
                 android:id="@+id/btn_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="114dp"
                 android:layout_below="@id/tvDesc"
                 android:layout_toRightOf="@id/btn_buyNow"
                 android:layout_marginLeft="44dp"

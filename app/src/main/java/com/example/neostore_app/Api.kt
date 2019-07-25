@@ -2,8 +2,10 @@ package com.example.neostore_app
 
 import com.example.neostore_app.Product.ProductResponse
 import com.example.neostore_app.Login.LoginResponse
+import com.example.neostore_app.Myaccount.UserData
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
 import com.example.neostore_app.ProductDetail.ProductImage
+import com.example.neostore_app.Rating.RatingResponse
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*
@@ -47,6 +49,18 @@ fun productList(
         @Query("product_id")product_id:String
     ):Observable<ProductDetailResponse>
 
+    @FormUrlEncoded
+    @POST("api/products/setRating")
 
+    fun setRating(
+        @Field("product_id")product_id:String,
+        @Field("rating")rating:String
+
+    ):Observable<RatingResponse>
+@GET("api/users/getUserData")
+fun userData(
+    @Header("access_token")access_token:String
+
+):Observable<UserData>
 
 }

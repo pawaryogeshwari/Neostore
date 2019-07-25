@@ -1,6 +1,7 @@
 package com.example.neostore_app.ProductDetail
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,7 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
         context = mContext
 
     }
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ProductAdapter.MyViewHolder {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
 
 
         val view = LayoutInflater.from(context).inflate(R.layout.activity_productdetail,p0, false)
@@ -30,17 +31,19 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
         return data!!.size
     }
 
-    override fun onBindViewHolder(p0: ProductAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(p0: MyViewHolder, position: Int) {
 
         p0.productImg.setOnClickListener{
 
         listener.onItemClick(position, data?.get(position)!!.image)
 
-
-
         }
 
+
         Picasso.get().load(data!![position].image).into(p0.productImg)
+
+
+
     }
 
 

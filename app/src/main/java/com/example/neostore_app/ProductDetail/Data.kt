@@ -10,6 +10,6 @@ data class Data(
     val producer: String,
     val product_category_id: Int,
     val product_images: List<ProductImage>,
-    val rating: Int,
+    val rating: Float,
     val view_count: Int
 )

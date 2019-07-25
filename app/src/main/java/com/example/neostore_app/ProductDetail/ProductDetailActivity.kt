@@ -4,39 +4,93 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
-import android.widget.TextView
 import com.example.neostore_app.R
+import com.example.neostore_app.Rating.RatingResponse
 import com.example.neostore_app.activitity.BaseActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_prouctdetailrow.*
+import kotlinx.android.synthetic.main.ratenowdialogfragment.*
+import kotlinx.android.synthetic.main.toolbar.*
 
-class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner {
-
-
-    private  var data1:List<ProductImage>? = null
-
-
-
-    override fun onItemClick(position: Int,image:String) {
-
-    Picasso.get().load(image).into(ivProductImg)
-
-    }
-
+class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner,RatingDialogFragment.OnClickRating {
 
 
     override val getLayout = R.layout.activity_prouctdetailrow
 
     lateinit  var viewModel:ProductViewModel
     private var myadapter: ProductAdapter? = null
+lateinit var product_id: String
+    lateinit var name:String
+    lateinit var rating:String
+    var imgname:String = ""
+    lateinit var img: List<ProductImage>
+    var pos:Int = 0
+
+
+    override fun onItemClick(position: Int,image:String) {
+
+        Picasso.get().load(image).into(ivProductImg)
+        pos = position
+
+        imgname = img[0].image
+    }
+
+
+    override fun setRatingValue(product_id: String, rating: String) {
+
+        viewModel.setRatingValue(product_id, rating)
+    }
+
+
+   private fun getRatingData(res: RatingResponse) {
+       rating = res.data!!.rating.toString()
+
+       RatingBar.rating = rating.toFloat()
+   }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        product_id = intent.extras.getInt("id").toString()
+
+        btn_buyNow.setOnClickListener {
+
+            val fm = supportFragmentManager
+            val dialog = ProductDialogFrament()
+            val bundle = Bundle()
+            bundle.putString("product_name",name)
+            bundle.putString("product_image",imgname)
+
+            dialog.arguments = bundle
+            dialog.show(supportFragmentManager,"Product_detail")
+
+
+        }
+
+        btn_rate.setOnClickListener {
+
+          val dialog = RatingDialogFragment(this,product_id)
+           val bundle = Bundle()
+            bundle.putString("product_name",name)
+           bundle.putString("product_image",imgname)
+//         bundle.putString("rating",rate)
+            dialog.arguments = bundle
+            dialog.show(supportFragmentManager,"Product_detail")
+
+        }
 
 
 
+
+
+
+
+        iv_menu.visibility = View.GONE
+
+
+        setToolbarAsBack()
 
         viewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
 
@@ -47,7 +101,7 @@ class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner {
 
             if(it!=null)
             {
-                setAdapter(it)
+                    setAdapter(it)
                 response(it)
 
             }
@@ -58,6 +112,24 @@ class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner {
             }
 
         })
+        viewModel.ratingResponse().observe(this,Observer<RatingResponse>
+        {
+
+            if(it!=null)
+            {
+                getRatingData(it)
+
+            }
+
+            else
+            {
+                showMessage("Error")
+            }
+
+        })
+
+
+
     }
 
     private fun setAdapter(product:ProductDetailResponse ) {
@@ -71,12 +143,15 @@ class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner {
 
     private fun response(res:ProductDetailResponse)
     {
-        val name = res.data.name
-        val producer    = res.data.producer
+        name = res.data.name
+        img = res.data.product_images
+        rating = res.data.rating.toString()
+        Log.d("TAG","position of image")
+        val producer = res.data.producer
         val cost = res.data.cost
         val desc   = res.data.description
-        val rating = res.data.rating
         etProductName.text = name
+        setToolbar(name)
         tvProducerName.text = producer
         tvCost.text = cost.toString()
         tvDesc.text = desc
@@ -84,5 +159,8 @@ class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner {
 
 
     }
+
+
+
 
 }

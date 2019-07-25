@@ -11,6 +11,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.neostore_app.Login.LoginActivity
+import com.example.neostore_app.Myaccount.MyAccountActivity
 import com.example.neostore_app.Product.ProductActivity
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
@@ -33,6 +34,12 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 finish()
 
 
+            }
+
+            R.id.Myaccount ->{
+
+                val intent = Intent(this,MyAccountActivity::class.java)
+                startActivity(intent)
             }
 
         }

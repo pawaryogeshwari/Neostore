@@ -19,6 +19,9 @@
         <activity android:name=".ProductDetail.ProductDetailActivity">
 
         </activity>
+        <activity android:name=".Myaccount.MyAccountActivity">
+
+        </activity>
         <activity android:name=".HomeScreen.HomeActivity">
         </activity>
         <activity

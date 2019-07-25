@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+>
+
+    <TextView
+            android:id="@+id/tvProduct_names"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/blackColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+    />
+
+    <ImageView
+            android:id="@+id/ivProduct_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:foregroundGravity="center"
+            android:paddingBottom="20dp"
+            android:layout_marginLeft="70dp"
+            android:layout_below="@id/tvProduct_names"
+    />
+    <TextView
+
+            android:id="@+id/tvquantity"
+            android:text="Enter quantity"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:textSize="16dp"
+            android:textColor="@color/blackColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ivProduct_img"
+            android:layout_marginTop="0dp"/>
+
+    <EditText
+            android:id="@+id/quantity"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@id/tvquantity"
+    />
+
+    <Button
+            android:id="@+id/btn_submit"
+            android:text="SUBMIT"
+            android:textColor="@color/whiteColor"
+            android:background="@drawable/buynow"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/quantity"
+            android:layout_marginBottom="20dp"
+    />
+</RelativeLayout>
