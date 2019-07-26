@@ -1,10 +1,11 @@
 package com.example.neostore_app
 
+import com.example.neostore_app.EditProfile.EditDataResponse
 import com.example.neostore_app.Product.ProductResponse
 import com.example.neostore_app.Login.LoginResponse
 import com.example.neostore_app.Myaccount.UserData
+import com.example.neostore_app.Myaccount.UserResponse
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
-import com.example.neostore_app.ProductDetail.ProductImage
 import com.example.neostore_app.Rating.RatingResponse
 import io.reactivex.Observable
 import retrofit2.Call
@@ -61,6 +62,18 @@ fun productList(
 fun userData(
     @Header("access_token")access_token:String
 
-):Observable<UserData>
+):Observable<UserResponse>
+  @FormUrlEncoded
+ @POST("api/users/update")
+ fun editProfile(
+     @Header("access_token")access_token: String,
+     @Field("first_name")first_name: String,
+     @Field("last_name")last_name: String,
+     @Field("dob")dob:String,
+     @Field("profile_pic")profile_pic:String?,
+     @Field("email")email: String
+
+  ):Observable<EditDataResponse>
+
 
 }

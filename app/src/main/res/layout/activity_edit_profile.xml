@@ -7,6 +7,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
 >
+    <include layout="@layout/toolbar"></include>
 
     <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivProfile"
@@ -78,7 +79,6 @@
             android:id="@+id/et_birth_date"
             android:background="@drawable/edit_text_style"
             style="@style/app_TextStyle"
-            android:textColor="@color/whiteColor"
             android:paddingStart="10dp"
             android:drawablePadding="10dp"
             android:paddingLeft="10dp"
@@ -90,25 +90,12 @@
 
             android:layout_marginTop="490dp"/>
     <Button
-            android:id="@+id/btn_edit_profile"
+            android:id="@+id/btn_submit"
             style="@style/app_TextStyle"
             android:background="@drawable/rounded_btn"
-            android:text="EDIT PROFILE"
+            android:text="SUBMIT"
             android:textColor="@color/RedColor"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="564dp"/>
-    <Button
-            android:id="@+id/btn_reset_password"
-            style="@style/app_TextStyle"
-            android:background="@drawable/rounded_btn"
-            android:text="RESET PASSWORD"
-            android:textColor="@color/RedColor"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-
-            android:layout_marginTop="624dp"/>
-
-
-
 </android.support.constraint.ConstraintLayout>

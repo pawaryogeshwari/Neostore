@@ -13,14 +13,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".EditProfile.EditProfileActivity">
+        </activity>
         <activity android:name=".Product.ProductActivity">
         </activity>
-
         <activity android:name=".ProductDetail.ProductDetailActivity">
-
         </activity>
         <activity android:name=".Myaccount.MyAccountActivity">
-
         </activity>
         <activity android:name=".HomeScreen.HomeActivity">
         </activity>
@@ -36,17 +35,15 @@
         </activity>
         <activity
                 android:name=".Login.LoginActivity"
-                android:noHistory="true"
-                android:launchMode="singleTop"
                 android:label="NeoSTORE"
+                android:launchMode="singleTop"
+                android:noHistory="true"
                 android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
         <activity
                 android:name=".MainActivity"

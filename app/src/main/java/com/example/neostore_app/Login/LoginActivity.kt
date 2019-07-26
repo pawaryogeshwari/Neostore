@@ -3,11 +3,8 @@ package com.example.neostore_app.Login
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.neostore_app.EMAIL
+import com.example.neostore_app.*
 import com.example.neostore_app.HomeScreen.HomeActivity
-import com.example.neostore_app.LOGGEDIN
-import com.example.neostore_app.PASSWORD
-import com.example.neostore_app.R
 import com.example.neostore_app.Registration.RegistrationActivity
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_login_screen.*
@@ -86,7 +83,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
 
-    override fun loginSucess() {
+    override fun loginSucess(res:LoginResponse) {
 
         val email = etEmail.text.toString().trim()
         val password = etPassword.text.toString().trim()
@@ -95,6 +92,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         val editor = settings.edit()
         editor.putString(EMAIL,email)
         editor.putString(PASSWORD,password)
+        editor.putString(ACCESSTOKEN,res.data?.access_token)
         editor.putBoolean(LOGGEDIN, true)
         editor.apply()
         etEmail.setText(email)

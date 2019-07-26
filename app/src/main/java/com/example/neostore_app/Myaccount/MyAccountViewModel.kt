@@ -11,8 +11,8 @@ import io.reactivex.schedulers.Schedulers
 class MyAccountViewModel :ViewModel(){
 
     val apiclient  = ApiManager.getClient().create(Api::class.java)
-    private val userdetails: MutableLiveData<UserData> = MutableLiveData()
-    fun userResponse(): MutableLiveData<UserData> = userdetails
+    private val userdetails: MutableLiveData<UserResponse> = MutableLiveData()
+    fun userResponse(): MutableLiveData<UserResponse> = userdetails
 
 fun userDetails(access_token:String)
 {

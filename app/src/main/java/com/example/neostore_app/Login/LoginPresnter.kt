@@ -44,7 +44,7 @@ val apiservice = ApiManager.getClient().create(Api::class.java)
                onNext = {
                     if(it!=null)
                    {
-                     mview?.loginSucess()
+                     mview?.loginSucess(it)
                 }
                },
                   onError = {
