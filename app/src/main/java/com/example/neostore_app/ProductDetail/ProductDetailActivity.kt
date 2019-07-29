@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import com.example.neostore_app.R
+import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
 import com.example.neostore_app.activitity.BaseActivity
 import com.squareup.picasso.Picasso
@@ -14,7 +15,13 @@ import kotlinx.android.synthetic.main.activity_prouctdetailrow.*
 import kotlinx.android.synthetic.main.ratenowdialogfragment.*
 import kotlinx.android.synthetic.main.toolbar.*
 
-class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner,RatingDialogFragment.OnClickRating {
+class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner,RatingDialogFragment.OnClickRating ,ProductDialogFrament.OnClicKQuantity{
+    override fun addToCart(access_token: String, product_id: String, quantity: String) {
+
+
+    }
+
+
 
 
     override val getLayout = R.layout.activity_prouctdetailrow
@@ -24,6 +31,7 @@ class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner,Rati
 lateinit var product_id: String
     lateinit var name:String
     lateinit var rating:String
+    lateinit var quantity: String
     var imgname:String = ""
     lateinit var img: List<ProductImage>
     var pos:Int = 0
@@ -50,15 +58,23 @@ lateinit var product_id: String
        RatingBar.rating = rating.toFloat()
    }
 
+    private fun getQuantity(res:AddCartResponse)
+    {
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         product_id = intent.extras.getInt("id").toString()
+        val settings = getSharedPreferences("LoginDetails", 0)
+        val test =settings.getString("access_token", null)
 
         btn_buyNow.setOnClickListener {
 
             val fm = supportFragmentManager
-            val dialog = ProductDialogFrament()
+            val dialog = ProductDialogFrament(this,product_id,test)
             val bundle = Bundle()
             bundle.putString("product_name",name)
             bundle.putString("product_image",imgname)
@@ -88,8 +104,6 @@ lateinit var product_id: String
 
 
         iv_menu.visibility = View.GONE
-
-
         setToolbarAsBack()
 
         viewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)

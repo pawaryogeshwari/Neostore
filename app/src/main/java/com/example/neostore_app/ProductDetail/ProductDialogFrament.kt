@@ -1,6 +1,7 @@
 package com.example.neostore_app.ProductDetail
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.util.Log
@@ -10,12 +11,16 @@ import android.view.ViewGroup
 import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dialogfragment.*
-import kotlinx.android.synthetic.main.row.*
 
-class ProductDialogFrament: DialogFragment() {
+@SuppressLint("ValidFragment")
+class ProductDialogFrament(list:OnClicKQuantity, id:String,access_toke:String): DialogFragment() {
 
 lateinit var p:String
     lateinit var pimage:String
+    var listener:OnClicKQuantity = list
+    var product_id:String = id
+    lateinit var quantity: String
+    var access_token:String = access_toke
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -37,9 +42,24 @@ lateinit var p:String
         tvProduct_names.text = p
        Picasso.get().load(pimage).into(ivProduct_img)
 
+
+        btn_submit.setOnClickListener {
+
+           quantity =  et_quantity.text.toString()
+            listener.addToCart(product_id, quantity,access_token)
+
+            dialog.dismiss()
+
+        }
+
     }
 
 
+    interface OnClicKQuantity
+    {
+        fun addToCart(access_token: String,product_id:String,quantity:String)
+
+    }
 
 
 

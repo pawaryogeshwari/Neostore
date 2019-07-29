@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel
 import android.util.Log
 import com.example.neostore_app.Api
 import com.example.neostore_app.ApiManager
+import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -70,6 +71,32 @@ val apiclient  = ApiManager.getClient().create(Api::class.java)
                 )
 
 
+
+
+    }
+    private val setquantity: MutableLiveData<AddCartResponse> = MutableLiveData()
+    fun quantityResponse(): MutableLiveData<AddCartResponse> = setquantity
+
+    fun setQuantity(access_token:String,product_id: String,quantity:String)
+    {
+        apiclient.setQuantity(access_token, product_id, quantity).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+
+                onNext = {
+
+                   setquantity.postValue(it)
+                },onError = {
+
+                    setquantity.postValue(null)
+                },
+
+                onComplete = {
+
+
+                }
+
+            )
 
 
     }

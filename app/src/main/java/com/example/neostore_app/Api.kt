@@ -6,6 +6,7 @@ import com.example.neostore_app.Login.LoginResponse
 import com.example.neostore_app.Myaccount.UserData
 import com.example.neostore_app.Myaccount.UserResponse
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
+import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
 import com.example.neostore_app.resetpassword.PasswordUpdateResponse
 import io.reactivex.Observable
@@ -59,6 +60,20 @@ fun productList(
         @Field("rating")rating:String
 
     ):Observable<RatingResponse>
+
+    @FormUrlEncoded
+    @POST("api/addToCart")
+
+    fun setQuantity(
+
+        @Header("access_token")access_token: String,
+        @Field("product_id")product_id: String,
+        @Field("quantity")quantity:String
+
+    ):Observable<AddCartResponse>
+
+
+
 @GET("api/users/getUserData")
 fun userData(
     @Header("access_token")access_token:String
