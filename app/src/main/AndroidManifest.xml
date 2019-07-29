@@ -13,6 +13,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity
+                android:name=".resetpassword.ResetPasswordActivity"
+                android:label="@string/title_activity_reset_password"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".EditProfile.EditProfileActivity">
         </activity>
         <activity android:name=".Product.ProductActivity">

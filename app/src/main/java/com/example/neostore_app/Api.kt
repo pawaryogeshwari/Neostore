@@ -7,6 +7,7 @@ import com.example.neostore_app.Myaccount.UserData
 import com.example.neostore_app.Myaccount.UserResponse
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
 import com.example.neostore_app.Rating.RatingResponse
+import com.example.neostore_app.resetpassword.PasswordUpdateResponse
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*
@@ -71,9 +72,19 @@ fun userData(
      @Field("last_name")last_name: String,
      @Field("dob")dob:String,
      @Field("profile_pic")profile_pic:String?,
-     @Field("email")email: String
+     @Field("email")email: String,
+     @Field("phone_no")phone_no:String
 
   ):Observable<EditDataResponse>
 
+    @FormUrlEncoded
+    @POST("api/users/change")
+    fun resetPassword(
+        @Header("access_token")access_token: String,
+        @Field("old_password")old_password:String,
+    @Field("password")password:String,
+        @Field("confirm_password")confirm_password:String
+
+    ):Observable<PasswordUpdateResponse>
 
 }

@@ -2,13 +2,21 @@ package com.example.neostore_app.EditProfile
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
-import com.example.neostore_app.Myaccount.MyAccountViewModel
+import com.example.neostore_app.HomeScreen.HomeActivity
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
-import com.squareup.picasso.Picasso
+import com.example.neostore_app.resetpassword.ResetPasswordActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_edit_profile.et_birth_date
+import kotlinx.android.synthetic.main.activity_edit_profile.et_email_add
+import kotlinx.android.synthetic.main.activity_edit_profile.et_first_name
+import kotlinx.android.synthetic.main.activity_edit_profile.et_last_name
+import kotlinx.android.synthetic.main.activity_edit_profile.et_phone_number
+import kotlinx.android.synthetic.main.activity_myaccount.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class EditProfileActivity : BaseActivity() {
@@ -16,16 +24,21 @@ class EditProfileActivity : BaseActivity() {
 lateinit var viewModel:EditProfileViewModel
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         iv_menu.visibility = View.GONE
 
-
+setToolbar("Edit Profile")
+        setToolbarAsBack()
         viewModel = ViewModelProviders.of(this).get(EditProfileViewModel::class.java)
 
 //        val settings = getSharedPreferences("LoginDetails", 0)
         // val test = settings.getString("email", null)
+
+
+
 
 
         btn_submit.setOnClickListener {
@@ -34,10 +47,13 @@ lateinit var viewModel:EditProfileViewModel
           val lastName = et_last_name.text.toString()
             val dob = et_birth_date.text.toString()
           val emailadd = et_email_add.text.toString()
+            val phoneNo = et_phone_number.text.toString()
+
+
 
             val settings = getSharedPreferences("LoginDetails", 0)
             val test =settings.getString("access_token", null)
-            viewModel.editProfileData(test,firstName,lastName,dob,null,emailadd)
+            viewModel.editProfileData(test,firstName,lastName,dob,"null",emailadd,phoneNo)
 
         }
 
@@ -47,6 +63,10 @@ lateinit var viewModel:EditProfileViewModel
             if (it!=null)
             {
 
+                showMessage("Data updated Successfully")
+
+                val intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
 
             }
             else
@@ -57,10 +77,12 @@ lateinit var viewModel:EditProfileViewModel
 
 
         })
-
-
-
-
-
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_search, menu)
+        return true
+    }
+
 }
