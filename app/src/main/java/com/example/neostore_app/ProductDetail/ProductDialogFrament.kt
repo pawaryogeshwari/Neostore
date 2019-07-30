@@ -46,7 +46,7 @@ lateinit var p:String
         btn_submit.setOnClickListener {
 
            quantity =  et_quantity.text.toString()
-            listener.addToCart(product_id, quantity,access_token)
+            listener.addToCart(access_token,product_id, quantity)
 
             dialog.dismiss()
 

@@ -8,6 +8,7 @@ import com.example.neostore_app.Myaccount.UserResponse
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
 import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
+import com.example.neostore_app.mycart.MyCartResponse
 import com.example.neostore_app.resetpassword.PasswordUpdateResponse
 import io.reactivex.Observable
 import retrofit2.Call
@@ -101,5 +102,12 @@ fun userData(
         @Field("confirm_password")confirm_password:String
 
     ):Observable<PasswordUpdateResponse>
+
+    @GET("api/cart")
+    fun cartDetail(
+        @Header("access_token")access_token: String
+
+    ):Observable<MyCartResponse>
+
 
 }

@@ -18,6 +18,9 @@
                 android:label="@string/title_activity_reset_password"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".mycart.MyCartActivity">
+
+        </activity>
         <activity android:name=".EditProfile.EditProfileActivity">
         </activity>
         <activity android:name=".Product.ProductActivity">

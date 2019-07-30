@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class ProductDetailActivity :BaseActivity(),ProductAdapter.OnClickListerner,RatingDialogFragment.OnClickRating ,ProductDialogFrament.OnClicKQuantity{
     override fun addToCart(access_token: String, product_id: String, quantity: String) {
-
+        viewModel.setQuantity(access_token, product_id, quantity)
 
     }
 
@@ -60,7 +60,7 @@ lateinit var product_id: String
 
     private fun getQuantity(res:AddCartResponse)
     {
-
+        showMessage(res.message)
     }
 
 
@@ -139,6 +139,23 @@ lateinit var product_id: String
             {
                 showMessage("Error")
             }
+
+        })
+
+
+        viewModel.quantityResponse().observe(this, Observer {
+
+            if (it!=null)
+            {
+                getQuantity(it)
+
+            }
+
+            else
+            {
+                showMessage("error")
+            }
+
 
         })
 
