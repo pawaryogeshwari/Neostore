@@ -9,14 +9,7 @@ import android.view.View
 import com.example.neostore_app.HomeScreen.HomeActivity
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
-import com.example.neostore_app.resetpassword.ResetPasswordActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.android.synthetic.main.activity_edit_profile.et_birth_date
-import kotlinx.android.synthetic.main.activity_edit_profile.et_email_add
-import kotlinx.android.synthetic.main.activity_edit_profile.et_first_name
-import kotlinx.android.synthetic.main.activity_edit_profile.et_last_name
-import kotlinx.android.synthetic.main.activity_edit_profile.et_phone_number
-import kotlinx.android.synthetic.main.activity_myaccount.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class EditProfileActivity : BaseActivity() {

@@ -62,7 +62,7 @@ lateinit var myCartAdapter: MyCartAdapter
 
     }
 
-    fun response(res:MyCartResponse)
+    private fun response(res:MyCartResponse)
     {
        val carttotal = res.total
 
