@@ -45,6 +45,8 @@
     </LinearLayout>
 
     <Button
+
+            android:id="@+id/btn_order_now"
             android:background="@drawable/buynow"
             android:layout_gravity="center"
             android:text="ORDER NOW"

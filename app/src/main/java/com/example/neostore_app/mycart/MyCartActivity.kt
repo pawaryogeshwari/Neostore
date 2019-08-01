@@ -2,11 +2,13 @@ package com.example.neostore_app.mycart
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.View
 import com.example.neostore_app.R
+import com.example.neostore_app.activitity.AddressActivity
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -52,8 +54,19 @@ lateinit var myCartAdapter: MyCartAdapter
             }
 
         })
+        btn_order_now.setOnClickListener {
+
+            val intent = Intent(this,AddressActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
 
     }
+
+
+
     private fun setAdapter(res:MyCartResponse)
     {
         myCartAdapter = MyCartAdapter(this,res.data)

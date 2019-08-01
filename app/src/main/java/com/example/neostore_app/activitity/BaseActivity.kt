@@ -2,6 +2,7 @@ package com.example.neostore_app.activitity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.widget.Toast
 import com.example.neostore_app.BasePresenter
 import com.example.neostore_app.BaseView
@@ -47,6 +48,7 @@ fun setToolbarAsBack()
     supportActionBar?.setDisplayShowHomeEnabled(true)
     supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp)
 }
+
 
 
 

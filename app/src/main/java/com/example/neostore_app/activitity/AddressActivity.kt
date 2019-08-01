@@ -1,11 +1,14 @@
 package com.example.neostore_app.activitity
 
-import android.database.Observable
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.View
 import com.example.neostore_app.Database.AppDb
 import com.example.neostore_app.Database.entities.Address
 import com.example.neostore_app.R
 import kotlinx.android.synthetic.main.activity_address.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class AddressActivity:BaseActivity() {
     override val getLayout = R.layout.activity_address
@@ -22,7 +25,11 @@ class AddressActivity:BaseActivity() {
 
         mdb = AppDb.getInstance(this)
 
+            iv_menu.visibility = View.GONE
 
+        setToolbar("Add Address")
+
+        setToolbarAsBack()
 
 
             btn_saveAddress.setOnClickListener {
@@ -42,8 +49,21 @@ class AddressActivity:BaseActivity() {
 
             }
                 thread.start()
+
+                val intent = Intent(this,AddressListActivity::class.java)
+                startActivity(intent)
         }
 
 
+
+
+
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_search, menu)
+        return true
+    }
+
 }
