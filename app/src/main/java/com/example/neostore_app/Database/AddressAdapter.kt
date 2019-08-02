@@ -1,16 +1,22 @@
-package com.example.neostore_app.activitity
+package com.example.neostore_app.Database
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.neostore_app.Database.entities.Address
 import com.example.neostore_app.R
 import kotlinx.android.synthetic.main.add_row.view.*
 
-class AddressAdapter(private val mContext: Context, private val mData: MutableList<Address>):BaseAdapter() {
+class AddressAdapter(private val mContext: Context, private val mData: MutableList<Address>,listener:OnClickAddress):BaseAdapter() {
+
+    lateinit var address:String
+    lateinit var address1:String
+    var list:OnClickAddress = listener
+    lateinit var access_token: String
 
     fun addAll(address: List<Address>) {
         mData.clear()
@@ -23,7 +29,7 @@ class AddressAdapter(private val mContext: Context, private val mData: MutableLi
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         var view = convertView
-        val viewHolder:ViewHolder
+        val viewHolder: ViewHolder
 
         if (view != null) {
             viewHolder = view.tag as ViewHolder
@@ -33,9 +39,18 @@ class AddressAdapter(private val mContext: Context, private val mData: MutableLi
             viewHolder = ViewHolder(view)
             view.tag = viewHolder
         }
-        val address = mData[position]
-        viewHolder.title.text = String.format("%s %s %s %s %s", address.address,address.city,address.country,address.state,address.zipcode)
-return view!!
+      address = mData[position].address
+        viewHolder.title.text = String.format("%s ", address)
+        viewHolder.id.setOnClickListener {
+
+            list.setAddress(access_token, address)
+
+
+
+        }
+
+
+        return view!!
     }
 
     override fun getItem(position: Int): Any {
@@ -59,6 +74,13 @@ return view!!
 
         var title: TextView = view.tv_address
 
+        var id:LinearLayout = view.linearLayout
+
     }
 
+
+    interface OnClickAddress{
+
+        fun setAddress(access_token:String,address:String)
+    }
 }

@@ -14,9 +14,6 @@ class ForgotpwdActivity : BaseActivity() {
 //        set(value) {}
 
 
-
-
-
     override var getLayout = R.layout.activity_forgotpwd
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

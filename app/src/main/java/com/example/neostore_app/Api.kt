@@ -1,5 +1,6 @@
 package com.example.neostore_app
 
+import com.example.neostore_app.AddressListening.OrderResponse
 import com.example.neostore_app.EditProfile.EditDataResponse
 import com.example.neostore_app.Product.ProductResponse
 import com.example.neostore_app.Login.LoginResponse
@@ -109,5 +110,13 @@ fun userData(
 
     ):Observable<MyCartResponse>
 
+    @FormUrlEncoded
+    @POST("api/order")
+
+    fun placeOrder(
+        @Header("access_token")access_token: String,
+        @Field("address")address:String
+
+    ):Observable<OrderResponse>
 
 }

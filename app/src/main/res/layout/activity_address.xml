@@ -22,11 +22,12 @@
 
     <EditText
             android:id="@+id/et_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="276dp"
+            android:layout_height="60dp"
+            android:background="@drawable/edit_text_style"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="548dp"
+            android:layout_marginBottom="550dp"
             android:layout_marginLeft="56dp"/>
 
     <TextView
@@ -41,35 +42,39 @@
             android:layout_marginBottom="432dp"/>
     <TextView
             android:id="@+id/tv_state"
+            android:textColor="@color/blackColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="STATE"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="432dp"
-            android:layout_marginRight="72dp"/>
+            android:layout_marginRight="108dp"/>
 
     <EditText
             android:id="@+id/et_city"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginBottom="340dp"
-            android:layout_marginLeft="64dp"/>
+            android:layout_marginBottom="352dp"
+            android:layout_marginLeft="24dp"/>
 
     <EditText
             android:id="@+id/et_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="340dp"
-            android:layout_marginRight="84dp"/>
+            android:background="@drawable/edit_text_style"
+            android:layout_marginBottom="348dp"
+            android:layout_marginRight="40dp"/>
 
     <TextView
             android:id="@+id/tv_zipcode"
             android:text="ZIP CODE"
+            android:textColor="@color/blackColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -81,29 +86,32 @@
             android:id="@+id/tv_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="STATE"
+            android:textColor="@color/blackColor"
+            android:text="COUNTRY"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="268dp"
             android:layout_marginRight="72dp"/>
 
     <EditText
-            android:id="@+id/et_zopcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/et_zipcode"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_style"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginBottom="200dp"
-            android:layout_marginLeft="64dp"/>
+            android:layout_marginBottom="192dp"
+            android:layout_marginLeft="36dp"/>
 
     <EditText
             android:id="@+id/et_country"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:background="@drawable/edit_text_style"
+            android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="200dp"
-            android:layout_marginRight="84dp"/>
+            android:layout_marginBottom="196dp"
+            android:layout_marginRight="40dp"/>
 
     <Button
             android:id="@+id/btn_saveAddress"

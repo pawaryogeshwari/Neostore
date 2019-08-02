@@ -18,11 +18,11 @@
                 android:label="@string/title_activity_reset_password"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".activitity.AddressActivity">
+        <activity android:name=".AddressListening.AddressActivity">
 
 
         </activity>
-        <activity android:name=".activitity.AddressListActivity">
+        <activity android:name=".AddressListening.AddressListActivity">
 
         </activity>
         <activity android:name=".mycart.MyCartActivity">
