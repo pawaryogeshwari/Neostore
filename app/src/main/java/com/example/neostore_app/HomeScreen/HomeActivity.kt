@@ -16,6 +16,7 @@ import com.example.neostore_app.Product.ProductActivity
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
 import com.example.neostore_app.mycart.MyCartActivity
+import com.example.neostore_app.order.OrderListActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.util.*
@@ -47,6 +48,14 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
                 val intent = Intent(this,MyCartActivity::class.java)
                 startActivity(intent)
+            }
+
+            R.id.myorders ->
+
+            {
+                val intent = Intent(this,OrderListActivity::class.java)
+                startActivity(intent)
+
             }
 
 

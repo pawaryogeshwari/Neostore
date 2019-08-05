@@ -1,7 +1,4 @@
 package com.example.neostore_app.AddressListening
-
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -11,14 +8,11 @@ import com.example.neostore_app.Database.entities.Address
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_address.*
-import kotlinx.android.synthetic.main.activity_addresslist.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class AddressActivity: BaseActivity() {
+
     override val getLayout = R.layout.activity_address
-
-
-
     lateinit var address: String
     lateinit var city: String
     lateinit var state: String

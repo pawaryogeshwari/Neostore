@@ -10,6 +10,7 @@ import com.example.neostore_app.ProductDetail.ProductDetailResponse
 import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
 import com.example.neostore_app.mycart.MyCartResponse
+import com.example.neostore_app.order.OrderDetailResponse
 import com.example.neostore_app.resetpassword.PasswordUpdateResponse
 import io.reactivex.Observable
 import retrofit2.Call
@@ -118,5 +119,13 @@ fun userData(
         @Field("address")address:String
 
     ):Observable<OrderResponse>
+
+
+    @GET("api/orderList")
+    fun displayListOfOrder(
+
+        @Header("access_token")access_token: String
+
+    ):Observable<OrderDetailResponse>
 
 }
