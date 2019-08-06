@@ -21,7 +21,6 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
     }
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
 
-
         val view = LayoutInflater.from(context).inflate(R.layout.activity_productdetail,p0, false)
         return MyViewHolder(view)
     }
@@ -35,12 +34,13 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
 
         p0.productImg.setOnClickListener{
 
-        listener.onItemClick(position, data?.get(position)!!.image)
+            listener.onItemClick(position, data?.get(position)!!.image)
 
         }
 
 
         Picasso.get().load(data!![position].image).into(p0.productImg)
+
 
 
 
@@ -50,6 +50,7 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {
         internal var productImg = itemView.findViewById<View>(R.id.ivImg) as ImageView
+//        internal var image = itemView.findViewById<View>(R.id.ivProductImg) as ImageView
 
 
     }

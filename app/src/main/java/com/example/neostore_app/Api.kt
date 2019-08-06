@@ -11,6 +11,7 @@ import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
 import com.example.neostore_app.mycart.MyCartResponse
 import com.example.neostore_app.order.OrderDetailResponse
+import com.example.neostore_app.orderdetail.OrderIdResponse
 import com.example.neostore_app.resetpassword.PasswordUpdateResponse
 import io.reactivex.Observable
 import retrofit2.Call
@@ -127,5 +128,16 @@ fun userData(
         @Header("access_token")access_token: String
 
     ):Observable<OrderDetailResponse>
+
+    @GET("api/orderDetail")
+
+    fun orderDetail(
+
+        @Header("access_token")access_token: String,
+        @Query("order_id")order_id:String
+
+
+
+    ):Observable<OrderIdResponse>
 
 }

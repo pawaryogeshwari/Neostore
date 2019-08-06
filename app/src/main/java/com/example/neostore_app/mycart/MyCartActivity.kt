@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.View
 import com.example.neostore_app.R
-import com.example.neostore_app.AddressListening.AddressActivity
+import com.example.neostore_app.Database.AddressActivity
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -50,7 +50,7 @@ lateinit var myCartAdapter: MyCartAdapter
 
             else
             {
-                showMessage("details not found")
+                showMessage("Cart is empty")
             }
 
         })

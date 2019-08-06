@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import com.example.neostore_app.R
 import com.example.neostore_app.Rating.AddCartResponse
@@ -34,16 +35,22 @@ lateinit var product_id: String
     lateinit var quantity: String
     var imgname:String = ""
     lateinit var img: List<ProductImage>
-    var pos:Int = 0
+    var position:Int = 0
 
 
     override fun onItemClick(position: Int,image:String) {
 
         Picasso.get().load(image).into(ivProductImg)
-        pos = position
 
-        imgname = img[0].image
     }
+
+   fun getProductImages(productImages: List<ProductImage>) {
+        img = productImages;
+        Picasso.get().load(productImages.get(0).image).into(ivProductImg)
+        imgname = productImages.get(0).image
+    }
+
+
 
 
     override fun setRatingValue(product_id: String, rating: String) {
@@ -117,6 +124,7 @@ lateinit var product_id: String
             {
                     setAdapter(it)
                 response(it)
+                getProductImages(it.data.product_images)
 
             }
 
@@ -191,6 +199,11 @@ lateinit var product_id: String
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_search, menu)
+        return true
+    }
 
 
 

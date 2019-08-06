@@ -1,9 +1,10 @@
-package com.example.neostore_app.AddressListening
+package com.example.neostore_app.Database
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import com.example.neostore_app.Database.AppDb
+import com.example.neostore_app.AddressListening.AddressListActivity
+import com.example.neostore_app.AddressListening.AddressViewModel
 import com.example.neostore_app.Database.entities.Address
 import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
@@ -19,7 +20,7 @@ class AddressActivity: BaseActivity() {
     lateinit var mdb: AppDb
     lateinit var zipcode: String
     lateinit var country: String
-  private var viewModel:AddressViewModel? = null
+  private var viewModel: AddressViewModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

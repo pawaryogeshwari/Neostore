@@ -32,7 +32,11 @@ class MyCartAdapter(mContext : Context, private var data:List<DataItem>?): Recyc
 
     override fun getItemCount(): Int {
 
-        return data!!.size
+        if (data == null) {
+            return 0
+        } else {
+            return data!!.size
+        }
     }
 
 

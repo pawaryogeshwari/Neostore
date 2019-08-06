@@ -1,12 +1,11 @@
 package com.example.neostore_app.Database
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import com.example.neostore_app.Database.entities.Address
 import com.example.neostore_app.R
@@ -80,7 +79,7 @@ class AddressAdapter(val access_t:String,private val mContext: Context, private 
 
         var title: TextView = view.tv_address
 
-        var id:LinearLayout = view.linearLayout
+        var id:RadioButton = view.rb_address
 
     }
 
