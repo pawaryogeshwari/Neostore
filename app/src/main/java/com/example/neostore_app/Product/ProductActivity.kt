@@ -39,9 +39,18 @@ var presenter = ProductPresenter(this,this)
        setToolbarAsBack()
 
 
-       setToolbar("Tables")
-        presenter.productList(intent.extras?.get("product_id").toString(),"10","1")
+
+  presenter.productList(intent.extras?.get("product_id").toString(),"10","1")
         my_recycler_view.layoutManager = LinearLayoutManager(this)
+        when(intent.extras?.get("product_id").toString())
+        {
+            "1" -> setToolbar("Tables")
+            "2" -> setToolbar("Chairs")
+            "3" -> setToolbar("Sofas")
+            "5" -> setToolbar("Cupboards")
+        }
+
+
 
 
     }

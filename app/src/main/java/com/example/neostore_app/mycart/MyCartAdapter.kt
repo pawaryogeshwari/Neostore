@@ -1,6 +1,7 @@
 package com.example.neostore_app.mycart
 
 import android.content.Context
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
 
-class MyCartAdapter(mContext : Context, private var data:List<DataItem>?): RecyclerView.Adapter<MyCartAdapter.MyViewHolder>()
+class MyCartAdapter(mContext : Context, private var data:ArrayList<DataItem>?): RecyclerView.Adapter<MyCartAdapter.MyViewHolder>()
     {
         private var context:Context? = null
 
@@ -32,10 +33,9 @@ class MyCartAdapter(mContext : Context, private var data:List<DataItem>?): Recyc
 
     override fun getItemCount(): Int {
 
-        if (data == null) {
-            return 0
-        } else {
-            return data!!.size
+        when (data) {
+            null -> return 0
+            else -> return data!!.size
         }
     }
 
@@ -43,27 +43,32 @@ class MyCartAdapter(mContext : Context, private var data:List<DataItem>?): Recyc
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.prouctname.text = data?.get(position)?.product!!.name
+        holder.productName.text = data?.get(position)?.product!!.name
 
-    holder.producercategory.text = data?.get(position)?.product!!.productCategory
+    holder.producerCategory.text = data?.get(position)?.product!!.productCategory
         holder.productCost.text = data!![position].product!!.cost.toString()
 
-        Picasso.get().load(data!![position].product?.productImages).into(holder.productimage)
+        Picasso.get().load(data!![position].product?.productImages).into(holder.productImage)
 
+        val bundle= Bundle()
+        bundle.putString("product_id", data!![position].productId.toString())
 
     }
+        fun removeAt(position: Int) {
+
+            data!!.removeAt(position)
+            notifyItemRemoved(position)
+        }
 
 
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {
 
-        internal var productimage = itemView.findViewById<View>(R.id.ivProduct_Image) as ImageView
-        internal var prouctname   = itemView.findViewById<View>(R.id.tv_product) as TextView
-        internal var producercategory = itemView.findViewById<View>(R.id.tv_product_category) as TextView
+        internal var productImage = itemView.findViewById<View>(R.id.ivProduct_Image) as ImageView
+        internal var productName   = itemView.findViewById<View>(R.id.tv_product) as TextView
+        internal var producerCategory = itemView.findViewById<View>(R.id.tv_product_category) as TextView
         internal var productCost = itemView.findViewById<View>(R.id.tv_Price)as TextView
-        internal var spinner= itemView.findViewById(R.id.sp_Quantity) as Spinner
 
     }
 
-
-}
+    }

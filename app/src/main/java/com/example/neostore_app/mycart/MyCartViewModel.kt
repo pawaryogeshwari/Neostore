@@ -14,7 +14,6 @@ class MyCartViewModel:ViewModel() {
     private val detailOfCart: MutableLiveData<MyCartResponse> = MutableLiveData()
     fun cartResponse(): MutableLiveData<MyCartResponse> = detailOfCart
 
-
     fun cartList(access_token:String)
     {
         apiclient.cartDetail(access_token).subscribeOn(Schedulers.io())
@@ -26,20 +25,18 @@ class MyCartViewModel:ViewModel() {
                     {
                         detailOfCart.postValue(it)
                     }
-
                 },
                 onError = {
 
                     detailOfCart.postValue(null)
                 },
                 onComplete = {
-
-
                 }
 
-                )
+                ) }
 
 
-    }
+
+
 
 }

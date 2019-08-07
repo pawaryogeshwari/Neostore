@@ -136,8 +136,13 @@ fun userData(
         @Header("access_token")access_token: String,
         @Query("order_id")order_id:String
 
-
-
     ):Observable<OrderIdResponse>
+
+@FormUrlEncoded
+    @POST("api/deleteCart")
+    fun deleteCart(
+    @Header("access_token")access_token: String,
+    @Field("product_id")product_id: String
+)
 
 }

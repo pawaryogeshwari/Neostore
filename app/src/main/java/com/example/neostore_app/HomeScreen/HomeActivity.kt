@@ -67,7 +67,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override val getLayout= R.layout.activity_home
 
-
+        var id:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -99,6 +99,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 
 
+
+
+
+
     }
 
     private fun navigateToProductDetail(id : String){
@@ -107,7 +111,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val intent = Intent(this, ProductActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
+
     }
+
+
 
     private fun init()
     {

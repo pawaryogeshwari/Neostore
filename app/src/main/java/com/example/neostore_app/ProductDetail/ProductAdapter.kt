@@ -50,7 +50,7 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
     inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {
         internal var productImg = itemView.findViewById<View>(R.id.ivImg) as ImageView
-//        internal var image = itemView.findViewById<View>(R.id.ivProductImg) as ImageView
+
 
 
     }

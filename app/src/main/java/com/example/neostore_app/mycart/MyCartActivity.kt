@@ -3,20 +3,25 @@ package com.example.neostore_app.mycart
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
+import android.graphics.*
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.Menu
 import android.view.View
-import com.example.neostore_app.R
 import com.example.neostore_app.Database.AddressActivity
+import com.example.neostore_app.R
 import com.example.neostore_app.activitity.BaseActivity
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
+
 
 class MyCartActivity:BaseActivity() {
     override val getLayout = R.layout.activity_my_cart
 lateinit var myCartAdapter: MyCartAdapter
     lateinit var viewModel: MyCartViewModel
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +65,76 @@ lateinit var myCartAdapter: MyCartAdapter
             startActivity(intent)
 
         }
+
+        val itemTouchHelperCallback = object :ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT)
+        {
+
+            override fun onMove(p0: RecyclerView, p1: RecyclerView.ViewHolder, p2: RecyclerView.ViewHolder): Boolean {
+            return false
+
+            }
+
+
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,
+                dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean)
+
+            {
+               val icon:Bitmap
+                val p = Paint()
+                if (actionState== ItemTouchHelper.ACTION_STATE_SWIPE)
+                {
+                    val itemView = viewHolder.itemView
+                    val height = itemView.bottom.toFloat() - itemView.top.toFloat()
+                    val width = height / 3
+
+
+
+                    if (dX < 0) {
+                        p.setColor(Color.parseColor("#D32F2F"))
+                        val background = RectF(
+                            itemView.right.toFloat() + dX / 4,
+                            itemView.top.toFloat(),
+                            itemView.right.toFloat(),
+                            itemView.bottom.toFloat()
+                        )
+                        c.drawRect(background, p)
+                        icon = BitmapFactory.decodeResource(resources,R.drawable.delete)
+                        val icon_dest = RectF(
+                            itemView.right.toFloat() - 2 * width,
+                            itemView.top.toFloat() + width,
+                            itemView.right.toFloat() - width,
+                            itemView.bottom.toFloat() - width
+                        )
+                        c.drawBitmap(icon, null, icon_dest,p)
+
+                    }
+
+                }
+
+
+
+
+
+
+
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
+
+
+
+            override fun onSwiped(holder: RecyclerView.ViewHolder, position: Int) {
+
+         val adapter = my_recycler_view.adapter as MyCartAdapter
+
+                adapter.removeAt(holder.adapterPosition)
+
+            }
+
+        }
+
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(my_recycler_view)
 
 
 

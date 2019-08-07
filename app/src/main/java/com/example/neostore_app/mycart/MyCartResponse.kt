@@ -9,7 +9,7 @@ data class MyCartResponse(
 	val total: Int? = null,
 
 	@field:SerializedName("data")
-	val data: List<DataItem>? = null,
+	val data: ArrayList<DataItem>? = null,
 
 	@field:SerializedName("count")
 	val count: Int? = null,
