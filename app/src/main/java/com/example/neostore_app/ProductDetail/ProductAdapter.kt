@@ -1,7 +1,6 @@
 package com.example.neostore_app.ProductDetail
 
 import android.content.Context
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,18 +9,24 @@ import android.widget.ImageView
 import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,private var listener:OnClickListerner) : RecyclerView.Adapter<ProductAdapter.MyViewHolder>(){
 
-    private var context:Context? = null
+
+class ProductAdapter(mContext: Context, private var data: List<ProductImage>?, private var listener: OnClickListerner) :
+    RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+
+    private var context: Context? = null
+
+    var selectedPosition = -1
 
 
     init {
         context = mContext
 
     }
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.activity_productdetail,p0, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.activity_productdetail, p0, false)
         return MyViewHolder(view)
     }
 
@@ -30,35 +35,43 @@ class ProductAdapter(mContext : Context, private var data: List<ProductImage>?,p
         return data!!.size
     }
 
-    override fun onBindViewHolder(p0: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        p0.productImg.setOnClickListener{
 
-            listener.onItemClick(position, data?.get(position)!!.image)
+        if (selectedPosition == position) {
 
+            holder.productImg.setBackgroundResource(R.drawable.imageclickcolor)
+
+        } else {
+            holder.productImg.background = null
         }
 
 
-        Picasso.get().load(data!![position].image).into(p0.productImg)
+        holder.productImg.setOnClickListener {
+
+            listener.onItemClick(position, data?.get(position)!!.image)
+            selectedPosition = position
+            notifyDataSetChanged()
 
 
+
+        }
+
+        Picasso.get().load(data!![position].image).into(holder.productImg)
 
 
     }
 
 
-    inner class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
-    {
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var productImg = itemView.findViewById<View>(R.id.ivImg) as ImageView
-
 
 
     }
 
     interface OnClickListerner {
-        fun onItemClick(position:Int,image:String)
 
-
+        fun onItemClick(position: Int, image: String)
     }
 
 }

@@ -21,17 +21,23 @@ class MyCartActivity:BaseActivity() {
     override val getLayout = R.layout.activity_my_cart
 lateinit var myCartAdapter: MyCartAdapter
     lateinit var viewModel: MyCartViewModel
-
+  var product_id:String = " "
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
+
         iv_menu.visibility = View.GONE
 
         setToolbarAsBack()
         setToolbar("My Cart")
+
+
+
+
+
 
         val settings = getSharedPreferences("LoginDetails", 0)
         val test =settings.getString("access_token", null)
@@ -125,10 +131,25 @@ lateinit var myCartAdapter: MyCartAdapter
 
             override fun onSwiped(holder: RecyclerView.ViewHolder, position: Int) {
 
-         val adapter = my_recycler_view.adapter as MyCartAdapter
 
-                adapter.removeAt(holder.adapterPosition)
 
+                viewModel.deleteItem(test,(my_recycler_view.adapter as MyCartAdapter).data!![holder.adapterPosition].productId.toString())
+                viewModel.deleteCartResponse().observe(this@MyCartActivity, Observer {
+
+                 if (it!=null)
+                 {
+
+                     showMessage(it.message)
+                 }
+                    else
+
+                 {
+                     showMessage("Error")
+                 }
+
+                })
+
+                (my_recycler_view.adapter as MyCartAdapter).removeAt(holder)
             }
 
         }

@@ -5,5 +5,6 @@ data class ProductImage(
     val id: Int,
     val image: String,
     val modified: String,
-    val product_id: Int
+    val product_id: Int,
+    var isSelected:Boolean
 )

@@ -35,6 +35,34 @@ class MyCartViewModel:ViewModel() {
 
                 ) }
 
+    private val deleteCart: MutableLiveData<DeleteCartResponse> = MutableLiveData()
+    fun deleteCartResponse(): MutableLiveData<DeleteCartResponse> = deleteCart
+
+    fun deleteItem(access_token: String,product_id:String)
+    {
+
+        apiclient.deleteCart(access_token, product_id).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onNext = {
+
+                    if (it!=null)
+                    {
+                       deleteCart.postValue(it)
+                    }
+                },
+                onError = {
+
+                    deleteCart.postValue(null)
+                },
+                onComplete = {
+                }
+
+            )
+
+
+    }
+
 
 
 

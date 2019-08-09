@@ -48,7 +48,7 @@ class AddressAdapter(val access_t:String,private val mContext: Context, private 
 
        viewHolder.id.setOnClickListener {
 
-            list.setAddress(access_token!!,mData[position].address)
+            list.setAddress(access_token,mData[position].address)
 
        }
 

@@ -44,7 +44,7 @@ class ResetPasswordActivity : BaseActivity() {
 
             if(it!= null)
             {
-                showMessage("password rest")
+                showMessage(it.message)
                 val intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }

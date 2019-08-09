@@ -9,6 +9,7 @@ import com.example.neostore_app.Myaccount.UserResponse
 import com.example.neostore_app.ProductDetail.ProductDetailResponse
 import com.example.neostore_app.Rating.AddCartResponse
 import com.example.neostore_app.Rating.RatingResponse
+import com.example.neostore_app.mycart.DeleteCartResponse
 import com.example.neostore_app.mycart.MyCartResponse
 import com.example.neostore_app.order.OrderDetailResponse
 import com.example.neostore_app.orderdetail.OrderIdResponse
@@ -143,6 +144,6 @@ fun userData(
     fun deleteCart(
     @Header("access_token")access_token: String,
     @Field("product_id")product_id: String
-)
+):Observable<DeleteCartResponse>
 
 }

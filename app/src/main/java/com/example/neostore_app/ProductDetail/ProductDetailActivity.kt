@@ -35,19 +35,21 @@ lateinit var product_id: String
     lateinit var quantity: String
     var imgname:String = ""
     lateinit var img: List<ProductImage>
-    var position:Int = 0
 
 
     override fun onItemClick(position: Int,image:String) {
 
         Picasso.get().load(image).into(ivProductImg)
 
+
+
+
     }
 
-   fun getProductImages(productImages: List<ProductImage>) {
-        img = productImages;
-        Picasso.get().load(productImages.get(0).image).into(ivProductImg)
-        imgname = productImages.get(0).image
+   private fun getProductImages(productImages: List<ProductImage>) {
+        img = productImages
+        Picasso.get().load(productImages[0].image).into(ivProductImg)
+        imgname = productImages[0].image
     }
 
 

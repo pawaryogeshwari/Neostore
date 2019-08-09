@@ -1,6 +1,7 @@
 package com.example.neostore_app.mycart
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,7 +14,7 @@ import com.example.neostore_app.R
 import com.squareup.picasso.Picasso
 
 
-class MyCartAdapter(mContext : Context, private var data:ArrayList<DataItem>?): RecyclerView.Adapter<MyCartAdapter.MyViewHolder>()
+class MyCartAdapter(mContext : Context,  var data:ArrayList<DataItem>? ): RecyclerView.Adapter<MyCartAdapter.MyViewHolder>()
     {
         private var context:Context? = null
 
@@ -50,14 +51,13 @@ class MyCartAdapter(mContext : Context, private var data:ArrayList<DataItem>?): 
 
         Picasso.get().load(data!![position].product?.productImages).into(holder.productImage)
 
-        val bundle= Bundle()
-        bundle.putString("product_id", data!![position].productId.toString())
+
 
     }
-        fun removeAt(position: Int) {
+        fun removeAt(holder: RecyclerView.ViewHolder) {
 
-            data!!.removeAt(position)
-            notifyItemRemoved(position)
+            data!!.removeAt(holder.adapterPosition)
+           notifyItemRemoved(holder.adapterPosition)
         }
 
 
